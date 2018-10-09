@@ -213,8 +213,8 @@ All toxin
 
 |image6|
 
-`PDF <https://github.com/hzafeng/huifeng/tree/master/source/images/PDF>`__\ **version
-please click here**
+`PDF <https://github.com/hzafeng/huifeng/tree/master/source/images/PDF>`__\ **please
+click here**
 
 In Silico Serotyping
 --------------------
