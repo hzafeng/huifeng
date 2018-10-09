@@ -93,7 +93,15 @@
 <li class="toctree-l3"><a class="reference internal" href="#translate-into-amino-acid-sequence">Translate into amino acid sequence</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#virulence-factors-detection">Virulence Factors Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#virulence-factors-detection">Virulence Factors Detection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#result-analysis">Result Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-visualization">Data visualization</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#use-upsetr">Use UpsetR:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#use-networkx">Use NetworkX</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#in-silico-serotyping">In Silico Serotyping</a></li>
 </ul>
 </li>
@@ -195,9 +203,7 @@ serotype.</p>
 </pre></div>
 </div>
 <p>On Windows</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Download</span> <span class="p">[</span><span class="n">wget</span><span class="p">](</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">gnuwin32</span><span class="o">.</span><span class="n">sourceforge</span><span class="o">.</span><span class="n">net</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">wget</span><span class="o">.</span><span class="n">htm</span><span class="p">)</span>
-</pre></div>
-</div>
+<p>Download <a class="reference external" href="http://gnuwin32.sourceforge.net/packages/wget.htm">wget</a></p>
 </div>
 <div class="section" id="download-via-accession-number">
 <h3>Download via accession number<a class="headerlink" href="#download-via-accession-number" title="Permalink to this headline">¶</a></h3>
@@ -244,7 +250,8 @@ collected gene set:</p>
 <span class="n">blastp</span> <span class="o">-</span><span class="n">query</span> <span class="n">Ecoli</span><span class="o">.</span><span class="n">faa</span> <span class="o">-</span><span class="n">db</span> <span class="n">VF</span><span class="o">.</span><span class="n">faa</span> <span class="o">-</span><span class="n">out</span> <span class="n">VF</span><span class="o">.</span><span class="n">blast</span> <span class="o">-</span><span class="n">outfmt</span> <span class="mi">6</span> <span class="o">-</span><span class="n">evalue</span> <span class="mf">1e-10</span>  <span class="o">-</span><span class="n">num_threads</span> <span class="mi">8</span> <span class="o">-</span><span class="n">num_alignments</span> <span class="mi">1</span>
 </pre></div>
 </div>
-<p>Result Analysis</p>
+<div class="section" id="result-analysis">
+<h3>Result Analysis<a class="headerlink" href="#result-analysis" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get_Strain_VF_Profile_Matrix:</span>
 <span class="n">strain_profile</span><span class="o">=</span><span class="p">{}</span>
 <span class="n">vfs</span><span class="o">=</span><span class="p">[]</span>
@@ -276,8 +283,11 @@ collected gene set:</p>
 </div>
 <p>Now we get the file of
 <a class="reference external" href="https://github.com/hzafeng/huifeng/tree/master/source/file">Strain_Profile.csv</a></p>
-<p>Data visualization</p>
-<p>Use UpsetR:</p>
+</div>
+<div class="section" id="data-visualization">
+<h3>Data visualization<a class="headerlink" href="#data-visualization" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="use-upsetr">
+<h4>Use UpsetR:<a class="headerlink" href="#use-upsetr" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show coexist between Agg subunit</span>
 <span class="n">library</span><span class="p">(</span><span class="n">UpSetR</span><span class="p">)</span>
 <span class="n">upset</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">order</span><span class="o">.</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;freq&quot;</span><span class="p">,</span><span class="n">sets</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s1">&#39;Agg3A&#39;</span><span class="p">,</span><span class="s1">&#39;Agg3B&#39;</span><span class="p">,</span><span class="s1">&#39;Agg3C&#39;</span><span class="p">,</span><span class="s1">&#39;Agg3D&#39;</span><span class="p">,</span><span class="s1">&#39;Agg4A&#39;</span><span class="p">,</span><span class="s1">&#39;Agg4B&#39;</span><span class="p">,</span><span class="s1">&#39;Agg4C&#39;</span><span class="p">,</span><span class="s1">&#39;Agg4D&#39;</span><span class="p">,</span><span class="s1">&#39;Agg5A&#39;</span><span class="p">,</span><span class="s1">&#39;AggA&#39;</span><span class="p">,</span><span class="s1">&#39;AggB&#39;</span><span class="p">,</span><span class="s1">&#39;AggC&#39;</span><span class="p">,</span><span class="s1">&#39;AggD&#39;</span><span class="p">))</span>
@@ -294,7 +304,9 @@ collected gene set:</p>
 </pre></div>
 </div>
 <p><img alt="image2" src="_images/bfp_upsetR.png" /></p>
-<p>Use NetworkX</p>
+</div>
+<div class="section" id="use-networkx">
+<h4>Use NetworkX<a class="headerlink" href="#use-networkx" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show co-exist between Shiga toxin and [Simplified Adhesin Factors]</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
@@ -337,8 +349,10 @@ collected gene set:</p>
 <p><img alt="image5" src="_images/Elt_ad_circular.png" /></p>
 <p>All toxin</p>
 <p><img alt="image6" src="_images/toxin_circular.png" /></p>
-<p><a class="reference external" href="https://github.com/hzafeng/huifeng/tree/master/source/images">PDF</a>
-version please click here</p>
+<p><a class="reference external" href="https://github.com/hzafeng/huifeng/tree/master/source/images/PDF">PDF</a><strong>version
+please click here</strong></p>
+</div>
+</div>
 </div>
 <div class="section" id="in-silico-serotyping">
 <h2>In Silico Serotyping<a class="headerlink" href="#in-silico-serotyping" title="Permalink to this headline">¶</a></h2>

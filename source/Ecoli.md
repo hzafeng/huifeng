@@ -20,7 +20,7 @@ On MacOs
 
 On Windows
 
-    Download [wget](http://gnuwin32.sourceforge.net/packages/wget.htm)
+Download [wget](http://gnuwin32.sourceforge.net/packages/wget.htm)
 
 ### Download via accession number
 According the [assembly_summary_genbank](ftp://ftp.ncbi.nlm.nih.gov/genomes/ASSEMBLY_REPORTS/assembly_summary_genbank.txt) in NCBI ftp site, we can get the genome through the organism name
@@ -57,7 +57,7 @@ We use all protein sequence to run [BLAST](https://blast.ncbi.nlm.nih.gov/Blast.
     makeblastdb -in VF.faa -dbtype prot
     blastp -query Ecoli.faa -db VF.faa -out VF.blast -outfmt 6 -evalue 1e-10  -num_threads 8 -num_alignments 1
 
-Result Analysis
+### Result Analysis
 
     # Get_Strain_VF_Profile_Matrix:
     strain_profile={}
@@ -89,9 +89,9 @@ Result Analysis
 
 Now we get the file of [Strain_Profile.csv](https://github.com/hzafeng/huifeng/tree/master/source/file)
 
-Data visualization
+### Data visualization
 
-Use UpsetR:
+#### Use UpsetR:
 
     # Show coexist between Agg subunit
     library(UpSetR)
@@ -110,7 +110,7 @@ Use UpsetR:
 
 ![](images/bfp_upsetR.png)
 
-Use NetworkX
+#### Use NetworkX
 
     # Show co-exist between Shiga toxin and [Simplified Adhesin Factors]
     import matplotlib.pyplot as plt
@@ -160,7 +160,7 @@ All toxin
 
 ![](images/toxin_circular.png)
 
-[PDF](https://github.com/hzafeng/huifeng/tree/master/source/images) version please click here
+**[PDF](https://github.com/hzafeng/huifeng/tree/master/source/images/PDF) version please click here**
 
 ## In Silico Serotyping
 To understand the relationship between different serotype and their virulence profile, we use [BLAST](https://blast.ncbi.nlm.nih.gov/Blast.cgi) based in silico methods to serotype E.coli via [SerotypeFinder](https://cge.cbs.dtu.dk/services/SerotypeFinder/).

@@ -39,9 +39,7 @@ On MacOs
 
 On Windows
 
-::
-
-   Download [wget](http://gnuwin32.sourceforge.net/packages/wget.htm)
+Download `wget <http://gnuwin32.sourceforge.net/packages/wget.htm>`__
 
 Download via accession number
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -98,6 +96,7 @@ collected gene set:
    blastp -query Ecoli.faa -db VF.faa -out VF.blast -outfmt 6 -evalue 1e-10  -num_threads 8 -num_alignments 1
 
 Result Analysis
+~~~~~~~~~~~~~~~
 
 ::
 
@@ -133,8 +132,10 @@ Now we get the file of
 `Strain_Profile.csv <https://github.com/hzafeng/huifeng/tree/master/source/file>`__
 
 Data visualization
+~~~~~~~~~~~~~~~~~~
 
 Use UpsetR:
+^^^^^^^^^^^
 
 ::
 
@@ -159,6 +160,7 @@ Use UpsetR:
 |image2|
 
 Use NetworkX
+^^^^^^^^^^^^
 
 ::
 
@@ -210,8 +212,8 @@ All toxin
 
 |image6|
 
-`PDF <https://github.com/hzafeng/huifeng/tree/master/source/images>`__
-version please click here
+`PDF <https://github.com/hzafeng/huifeng/tree/master/source/images/PDF>`__\ **version
+please click here**
 
 In Silico Serotyping
 --------------------
