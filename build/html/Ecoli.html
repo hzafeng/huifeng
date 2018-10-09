@@ -1,0 +1,402 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Project of Escherichia coli &mdash; HUifeng&#39;s BLOG 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Bio" href="my_first_blog.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> HUifeng's BLOG
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="my_first_blog.html">Bio</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Project of Escherichia coli</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#environment">Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#genome-download">Genome Download</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#install-wget">Install Wget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#download-via-accession-number">Download via accession number</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#translate-into-amino-acid-sequence">Translate into amino acid sequence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#virulence-factors-detection">Virulence Factors Detection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#in-silico-serotyping">In Silico Serotyping</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">HUifeng's BLOG</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Project of Escherichia coli</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Ecoli.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="project-of-escherichia-coli">
+<h1>Project of Escherichia coli<a class="headerlink" href="#project-of-escherichia-coli" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Escherichia_coli">Escherichia coli</a> is
+a Gram-negative, rod-shaped bacterium belonging to the family
+Enterobacteriaceae that was described in 1885 by a German pediatrician.
+Pathogenic E.coli is versatile due to the diversity of their gene sets.
+Virulence factors usually located on a virulence plasmid and can be
+acquired through gene transfer.Different combination of virulence
+factors may caused to different illness among human and animals.</p>
+<p>This time, we investigate the co-occurrance of virulence factors among
+all the available genome in the
+<a class="reference external" href="https://www.ncbi.nlm.nih.gov/genbank/">Genbank</a>. Meanwhile, we use
+phylogenetic tree to investigate relationship between different O/H
+serotype.</p>
+</div>
+<div class="section" id="environment">
+<h2>Environment<a class="headerlink" href="#environment" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://www.python.org/download/releases/2.7/">Python</a> 2.7(
+<a class="reference external" href="https://www.anaconda.com/">Anaconda</a>)</li>
+</ul>
+</div>
+<div class="section" id="genome-download">
+<h2>Genome Download<a class="headerlink" href="#genome-download" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="install-wget">
+<h3>Install Wget<a class="headerlink" href="#install-wget" title="Permalink to this headline">¶</a></h3>
+<p>On MacOs</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ruby</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span>
+<span class="n">brew</span> <span class="n">install</span> <span class="n">wget</span>
+</pre></div>
+</div>
+<p>On Windows</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Download</span> <span class="p">[</span><span class="n">wget</span><span class="p">](</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">gnuwin32</span><span class="o">.</span><span class="n">sourceforge</span><span class="o">.</span><span class="n">net</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">wget</span><span class="o">.</span><span class="n">htm</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="download-via-accession-number">
+<h3>Download via accession number<a class="headerlink" href="#download-via-accession-number" title="Permalink to this headline">¶</a></h3>
+<p>According the
+<a class="reference external" href="ftp://ftp.ncbi.nlm.nih.gov/genomes/ASSEMBLY_REPORTS/assembly_summary_genbank.txt">assembly_summary_genbank</a>
+in NCBI ftp site, we can get the genome through the organism name</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s2">&quot;Ecoli_genome&quot;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s2">&quot;Ecoli_genome&quot;</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;assembly_summary_genbank.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)[</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;wget &#39;</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="s1">&#39;_genomic.fna.gz&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>or Use <a class="reference external" href="https://pandas.pydata.org/">Pandas</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">f</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s2">&quot;assembly_summary_genbank.txt&quot;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">f</span><span class="p">[</span><span class="n">f</span><span class="p">[</span><span class="s1">&#39;organism_name&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Escherichia coli&#39;</span><span class="p">][</span><span class="s1">&#39;ftp_path&#39;</span><span class="p">]:</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;wget &#39;</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="s1">&#39;_genomic.fna.gz&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="translate-into-amino-acid-sequence">
+<h3>Translate into amino acid sequence<a class="headerlink" href="#translate-into-amino-acid-sequence" title="Permalink to this headline">¶</a></h3>
+<p>Usually I only download fna file, and use
+<a class="reference external" href="https://github.com/hyattpd/Prodigal">Prodigal</a> to translate
+nucleotide into amino acid sequence.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">):</span>
+    <span class="n">order</span> <span class="o">=</span> <span class="s1">&#39;prodigal -i &#39;</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="s1">&#39; -q -a &#39;</span><span class="o">+</span><span class="n">i</span><span class="s1">&#39;.faa&#39;</span><span class="o">+</span><span class="s1">&#39; -d &#39;</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="s1">&#39;.nucl&#39;</span><span class="o">+</span><span class="s1">&#39; -o &#39;</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="s1">&#39;.out&#39;</span>
+    <span class="nb">print</span> <span class="n">order</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">order</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now we can get predicted protein sequence of all E.coli genomes.</p>
+</div>
+<div class="section" id="virulence-factors-detection">
+<h3>Virulence Factors Detection<a class="headerlink" href="#virulence-factors-detection" title="Permalink to this headline">¶</a></h3>
+<p>We use all protein sequence to run
+<a class="reference external" href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">BLAST</a> against a In-house
+collected gene set:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">*.</span><span class="n">faa</span> <span class="o">&gt;</span> <span class="n">Ecoli</span><span class="o">.</span><span class="n">faa</span>
+<span class="n">makeblastdb</span> <span class="o">-</span><span class="ow">in</span> <span class="n">VF</span><span class="o">.</span><span class="n">faa</span> <span class="o">-</span><span class="n">dbtype</span> <span class="n">prot</span>
+<span class="n">blastp</span> <span class="o">-</span><span class="n">query</span> <span class="n">Ecoli</span><span class="o">.</span><span class="n">faa</span> <span class="o">-</span><span class="n">db</span> <span class="n">VF</span><span class="o">.</span><span class="n">faa</span> <span class="o">-</span><span class="n">out</span> <span class="n">VF</span><span class="o">.</span><span class="n">blast</span> <span class="o">-</span><span class="n">outfmt</span> <span class="mi">6</span> <span class="o">-</span><span class="n">evalue</span> <span class="mf">1e-10</span>  <span class="o">-</span><span class="n">num_threads</span> <span class="mi">8</span> <span class="o">-</span><span class="n">num_alignments</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>Result Analysis # Get_Strain_VF_Profile_Matrix: strain_profile={} vfs=[]
+with open(r’VF.blast’) as f: data=f.read().split(‘<a href="#id1"><span class="problematic" id="id2">:raw-latex:`\n`</span></a>’)[-1]
+for i in data: strain=i.split(‘<a href="#id3"><span class="problematic" id="id4">:raw-latex:`\t'`</span></a>)[0].split(’|‘)[0] if
+i.split(’<a href="#id5"><span class="problematic" id="id6">:raw-latex:`\t'`</span></a>)[2] &gt;= 60: if i.split(‘<a href="#id7"><span class="problematic" id="id8">:raw-latex:`\t'`</span></a>)[2]
+not in vfs: vfs.append(i.split(’<a href="#id9"><span class="problematic" id="id10">:raw-latex:`\t'`</span></a>)[2]) if
+i.split(‘<a href="#id11"><span class="problematic" id="id12">:raw-latex:`\t'`</span></a>)[0].split(’|‘)[0] not in strian_profile:
+strain_profile[starin]=[i.split(’<a href="#id13"><span class="problematic" id="id14">:raw-latex:`\t'`</span></a>)[1]] else:
+strain_profile[strain].append(i.split(’<a href="#id15"><span class="problematic" id="id16">:raw-latex:`\t'`</span></a>)[1])</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write File</span>
+<span class="n">outfile</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Strain_Profile.csv&#39;</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39; ,&#39;</span><span class="o">+</span><span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">vfs</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">strain_profile</span><span class="p">:</span>
+    <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">vfs</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">strain_profile</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+            <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;,1&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;,0&#39;</span><span class="p">)</span>
+    <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">outfile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Data visualization</p>
+<p>Use UpsetR: # Show coexist between Agg subunit library(UpSetR)
+upset(f,order.by=“freq”,sets=c(‘Agg3A’,‘Agg3B’,‘Agg3C’,‘Agg3D’,‘Agg4A’,‘Agg4B’,‘Agg4C’,‘Agg4D’,‘Agg5A’,‘AggA’,‘AggB’,‘AggC’,‘AggD’))</p>
+<p><img alt="image0" src="images/agg_upsetR.png" /></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show co-exist between Stx toxin</span>
+<span class="n">upset</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">order</span><span class="o">.</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;freq&quot;</span><span class="p">,</span><span class="n">sets</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">&quot;Stx2aB&quot;</span><span class="p">,</span><span class="s2">&quot;Stx2aA&quot;</span><span class="p">,</span><span class="s2">&quot;Stx2bA&quot;</span><span class="p">,</span><span class="s2">&quot;Stx1aA&quot;</span><span class="p">,</span><span class="s2">&quot;Stx1aB&quot;</span><span class="p">,</span><span class="s2">&quot;Stx2dB&quot;</span><span class="p">,</span><span class="s2">&quot;Stx2bB&quot;</span><span class="p">,</span><span class="s2">&quot;Stx1cA&quot;</span><span class="p">,</span><span class="s2">&quot;Stx1cB&quot;</span><span class="p">,</span><span class="s2">&quot;Stx2dA&quot;</span><span class="p">,</span><span class="s2">&quot;Stx1dB&quot;</span><span class="p">,</span><span class="s2">&quot;Stx2fA&quot;</span><span class="p">,</span><span class="s2">&quot;Stx2fB&quot;</span><span class="p">,</span><span class="s2">&quot;Stx1dA&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p><img alt="image1" src="images/stx_upsetR.png" /></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show co-exist between Bfp toxin</span>
+<span class="n">upset</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">order</span><span class="o">.</span><span class="n">by</span> <span class="o">=</span> <span class="s2">&quot;freq&quot;</span><span class="p">,</span><span class="n">sets</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">&quot;BfpA&quot;</span><span class="p">,</span><span class="s2">&quot;BfpB&quot;</span><span class="p">,</span><span class="s2">&quot;BfpC&quot;</span><span class="p">,</span><span class="s2">&quot;BfpD&quot;</span><span class="p">,</span><span class="s2">&quot;BfpE&quot;</span><span class="p">,</span><span class="s2">&quot;BfpF&quot;</span><span class="p">,</span><span class="s2">&quot;BfpG&quot;</span><span class="p">,</span><span class="s2">&quot;BfpH&quot;</span><span class="p">,</span><span class="s2">&quot;BfpI&quot;</span><span class="p">,</span><span class="s2">&quot;BfpJ&quot;</span><span class="p">,</span><span class="s2">&quot;BfpK&quot;</span><span class="p">,</span><span class="s2">&quot;BfpL&quot;</span><span class="p">,</span><span class="s2">&quot;BfpP&quot;</span><span class="p">,</span><span class="s2">&quot;BfpU&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p><img alt="image2" src="images/bfp_upsetR.png" /></p>
+<p>Use NetworkX</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show co-exist between Shiga toxin and [Simplified Adhesin Factors]</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="k">def</span> <span class="nf">get_co_oc_from_show_vfs</span><span class="p">(</span><span class="n">show_vf</span><span class="p">):</span>
+    <span class="n">cooc</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;adhesin_simplify.csv&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">data</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+            <span class="n">show_vf</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">show_vf</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">show_vf</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">j</span><span class="o">&gt;</span><span class="n">i</span><span class="p">:</span>
+                <span class="n">con</span><span class="o">=</span><span class="mi">0</span>
+                <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">strain_profile</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">show_vf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">in</span> <span class="n">strain_profile</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="ow">and</span> <span class="n">show_vf</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="ow">in</span> <span class="n">strain_profile</span><span class="p">[</span><span class="n">k</span><span class="p">]:</span>
+                        <span class="n">con</span><span class="o">+=</span><span class="mi">1</span>
+                <span class="k">if</span> <span class="n">con</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">cooc</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">show_vf</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">show_vf</span><span class="p">[</span><span class="n">j</span><span class="p">],</span><span class="n">con</span><span class="p">))</span>
+<span class="n">show_vf</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Stx1aA&#39;</span><span class="p">,</span><span class="s1">&#39;Stx1cA&#39;</span><span class="p">,</span><span class="s1">&#39;Stx1dA&#39;</span><span class="p">,</span><span class="s1">&#39;Stx2aA&#39;</span><span class="p">,</span><span class="s1">&#39;Stx2bA&#39;</span><span class="p">,</span><span class="s1">&#39;Stx2dA&#39;</span><span class="p">,</span><span class="s1">&#39;Stx2eA&#39;</span><span class="p">,</span><span class="s1">&#39;Stx1aB&#39;</span><span class="p">,</span><span class="s1">&#39;Stx1cB&#39;</span><span class="p">,</span><span class="s1">&#39;Stx1dB&#39;</span><span class="p">,</span><span class="s1">&#39;Stx2aB&#39;</span><span class="p">,</span><span class="s1">&#39;Stx2bB&#39;</span><span class="p">,</span><span class="s1">&#39;Stx2dB&#39;</span><span class="p">,</span><span class="s1">&#39;Stx2eB&#39;</span><span class="p">]</span>
+<span class="n">get_co_oc_from_show_vfs</span><span class="p">(</span><span class="n">show_vf</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span>
+<span class="n">G</span><span class="o">=</span><span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_weighted_edges_from</span><span class="p">(</span><span class="n">cooc</span><span class="p">)</span>
+<span class="n">weights</span> <span class="o">=</span><span class="p">[]</span>
+<span class="n">weights</span><span class="o">=</span> <span class="p">[</span><span class="n">w</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span><span class="o">*</span><span class="mf">0.001</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">)]</span>
+<span class="n">node_color</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">():</span>
+    <span class="k">if</span> <span class="s1">&#39;Stx&#39;</span> <span class="ow">in</span> <span class="n">i</span><span class="p">:</span>
+        <span class="n">node_color</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;#CD3333&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">node_color</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;#B5B5B5&#39;</span><span class="p">)</span>
+<span class="n">pos</span><span class="o">=</span><span class="n">nx</span><span class="o">.</span><span class="n">circular_layout</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span><span class="n">node_size</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">weights</span><span class="p">,</span><span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">font_size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">node_color</span><span class="o">=</span><span class="n">node_color</span><span class="p">,</span><span class="n">edge_color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="image3" src="images/Stx_ad_circular.pdf" /></p>
+<p><img alt="image4" src="images/St_ad_circular.pdf" /></p>
+<p><img alt="image5" src="images/Elt_ad_circular.pdf" /></p>
+<p><img alt="image6" src="images/toxin_circular.pdf" /></p>
+</div>
+<div class="section" id="in-silico-serotyping">
+<h3>In Silico Serotyping<a class="headerlink" href="#in-silico-serotyping" title="Permalink to this headline">¶</a></h3>
+<p>To understand the relationship between different serotype and their
+virulence profile, we use
+<a class="reference external" href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">BLAST</a> based in silico
+methods to serotype E.coli via
+<a class="reference external" href="https://cge.cbs.dtu.dk/services/SerotypeFinder/">SerotypeFinder</a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">*.</span><span class="n">faa</span> <span class="o">&gt;</span> <span class="n">Ecoli</span><span class="o">.</span><span class="n">faa</span>
+<span class="n">makeblastdb</span> <span class="o">-</span><span class="ow">in</span> <span class="n">serotype</span><span class="o">.</span><span class="n">faa</span> <span class="o">-</span><span class="n">dbtype</span> <span class="n">prot</span>
+<span class="n">blastp</span> <span class="o">-</span><span class="n">query</span> <span class="n">Ecoli</span><span class="o">.</span><span class="n">faa</span> <span class="o">-</span><span class="n">db</span> <span class="n">serotype</span><span class="o">.</span><span class="n">faa</span> <span class="o">-</span><span class="n">out</span> <span class="n">EcoliSerotype</span><span class="o">.</span><span class="n">blast</span> <span class="o">-</span><span class="n">outfmt</span> <span class="mi">6</span> <span class="o">-</span><span class="n">evalue</span> <span class="mf">1e-10</span>  <span class="o">-</span><span class="n">num_threads</span> <span class="mi">8</span> <span class="o">-</span><span class="n">num_alignments</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="my_first_blog.html" class="btn btn-neutral" title="Bio" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, huifeng@ualberta.ca.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
