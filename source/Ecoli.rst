@@ -97,16 +97,24 @@ collected gene set:
    makeblastdb -in VF.faa -dbtype prot
    blastp -query Ecoli.faa -db VF.faa -out VF.blast -outfmt 6 -evalue 1e-10  -num_threads 8 -num_alignments 1
 
-Result Analysis # Get_Strain_VF_Profile_Matrix: strain_profile={} vfs=[]
-with open(r’VF.blast’) as f: data=f.read().split(‘:raw-latex:`\n`’)[-1]
-for i in data: strain=i.split(‘:raw-latex:`\t'`)[0].split(’\|‘)[0] if
-i.split(’:raw-latex:`\t'`)[2] >= 60: if i.split(‘:raw-latex:`\t'`)[2]
-not in vfs: vfs.append(i.split(’:raw-latex:`\t'`)[2]) if
-i.split(‘:raw-latex:`\t'`)[0].split(’\|‘)[0] not in strian_profile:
-strain_profile[starin]=[i.split(’:raw-latex:`\t'`)[1]] else:
-strain_profile[strain].append(i.split(’:raw-latex:`\t'`)[1])
+Result Analysis
 
 ::
+
+   # Get_Strain_VF_Profile_Matrix:
+   strain_profile={}
+   vfs=[]
+   with open(r'VF.blast') as f:
+       data=f.read().split('\n')[-1]
+       for i in data:
+           strain=i.split('\t')[0].split('|')[0]
+           if i.split('\t')[2] >= 60:
+               if i.split('\t')[2] not in vfs:
+                   vfs.append(i.split('\t')[2])
+               if i.split('\t')[0].split('|')[0] not in strian_profile:
+                   strain_profile[starin]=[i.split('\t')[1]]
+               else:
+                   strain_profile[strain].append(i.split('\t')[1])
 
    # Write File
    outfile=open(r'Strain_Profile.csv','w')
@@ -182,9 +190,15 @@ Use NetworkX
 
 |image3|
 
+Adhesin factors and heat stable toxin
+
 |image4|
 
+Adhesin factors and heat labile toxin
+
 |image5|
+
+All toxin
 
 |image6|
 
@@ -206,8 +220,8 @@ methods to serotype E.coli via
 .. |image0| image:: images/agg_upsetR.png
 .. |image1| image:: images/stx_upsetR.png
 .. |image2| image:: images/bfp_upsetR.png
-.. |image3| image:: images/Stx_ad_circular.pdf
-.. |image4| image:: images/St_ad_circular.pdf
-.. |image5| image:: images/Elt_ad_circular.pdf
-.. |image6| image:: images/toxin_circular.pdf
+.. |image3| image:: images/Stx_ad_circular.png
+.. |image4| image:: images/St_ad_circular.png
+.. |image5| image:: images/Elt_ad_circular.png
+.. |image6| image:: images/toxin_circular.png
 

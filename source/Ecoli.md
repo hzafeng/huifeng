@@ -58,6 +58,7 @@ We use all protein sequence to run [BLAST](https://blast.ncbi.nlm.nih.gov/Blast.
     blastp -query Ecoli.faa -db VF.faa -out VF.blast -outfmt 6 -evalue 1e-10  -num_threads 8 -num_alignments 1
 
 Result Analysis
+
     # Get_Strain_VF_Profile_Matrix:
     strain_profile={}
     vfs=[]
@@ -142,13 +143,19 @@ Use NetworkX
     pos=nx.circular_layout(G)
     nx.draw(G, pos,node_size=200, width=weights,with_labels=True,font_size=5,node_color=node_color,edge_color=color,alpha=0.8)
 
-![](images/Stx_ad_circular.pdf)
+![](images/Stx_ad_circular.png)
 
-![](images/St_ad_circular.pdf)
+Adhesin factors and heat stable toxin
 
-![](images/Elt_ad_circular.pdf)
+![](images/St_ad_circular.png)
 
-![](images/toxin_circular.pdf)
+Adhesin factors and heat labile toxin
+
+![](images/Elt_ad_circular.png)
+
+All toxin
+
+![](images/toxin_circular.png)
 
 
 ### In Silico Serotyping

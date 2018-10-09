@@ -243,15 +243,23 @@ collected gene set:</p>
 <span class="n">blastp</span> <span class="o">-</span><span class="n">query</span> <span class="n">Ecoli</span><span class="o">.</span><span class="n">faa</span> <span class="o">-</span><span class="n">db</span> <span class="n">VF</span><span class="o">.</span><span class="n">faa</span> <span class="o">-</span><span class="n">out</span> <span class="n">VF</span><span class="o">.</span><span class="n">blast</span> <span class="o">-</span><span class="n">outfmt</span> <span class="mi">6</span> <span class="o">-</span><span class="n">evalue</span> <span class="mf">1e-10</span>  <span class="o">-</span><span class="n">num_threads</span> <span class="mi">8</span> <span class="o">-</span><span class="n">num_alignments</span> <span class="mi">1</span>
 </pre></div>
 </div>
-<p>Result Analysis # Get_Strain_VF_Profile_Matrix: strain_profile={} vfs=[]
-with open(r’VF.blast’) as f: data=f.read().split(‘<a href="#id1"><span class="problematic" id="id2">:raw-latex:`\n`</span></a>’)[-1]
-for i in data: strain=i.split(‘<a href="#id3"><span class="problematic" id="id4">:raw-latex:`\t'`</span></a>)[0].split(’|‘)[0] if
-i.split(’<a href="#id5"><span class="problematic" id="id6">:raw-latex:`\t'`</span></a>)[2] &gt;= 60: if i.split(‘<a href="#id7"><span class="problematic" id="id8">:raw-latex:`\t'`</span></a>)[2]
-not in vfs: vfs.append(i.split(’<a href="#id9"><span class="problematic" id="id10">:raw-latex:`\t'`</span></a>)[2]) if
-i.split(‘<a href="#id11"><span class="problematic" id="id12">:raw-latex:`\t'`</span></a>)[0].split(’|‘)[0] not in strian_profile:
-strain_profile[starin]=[i.split(’<a href="#id13"><span class="problematic" id="id14">:raw-latex:`\t'`</span></a>)[1]] else:
-strain_profile[strain].append(i.split(’<a href="#id15"><span class="problematic" id="id16">:raw-latex:`\t'`</span></a>)[1])</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write File</span>
+<p>Result Analysis</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get_Strain_VF_Profile_Matrix:</span>
+<span class="n">strain_profile</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">vfs</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;VF.blast&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="n">strain</span><span class="o">=</span><span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;|&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">vfs</span><span class="p">:</span>
+                <span class="n">vfs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)[</span><span class="mi">2</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;|&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">strian_profile</span><span class="p">:</span>
+                <span class="n">strain_profile</span><span class="p">[</span><span class="n">starin</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">strain_profile</span><span class="p">[</span><span class="n">strain</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># Write File</span>
 <span class="n">outfile</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Strain_Profile.csv&#39;</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
 <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39; ,&#39;</span><span class="o">+</span><span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">vfs</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">strain_profile</span><span class="p">:</span>
@@ -268,17 +276,17 @@ strain_profile[strain].append(i.split(’<a href="#id15"><span class="problemati
 <p>Data visualization</p>
 <p>Use UpsetR: # Show coexist between Agg subunit library(UpSetR)
 upset(f,order.by=“freq”,sets=c(‘Agg3A’,‘Agg3B’,‘Agg3C’,‘Agg3D’,‘Agg4A’,‘Agg4B’,‘Agg4C’,‘Agg4D’,‘Agg5A’,‘AggA’,‘AggB’,‘AggC’,‘AggD’))</p>
-<p><img alt="image0" src="images/agg_upsetR.png" /></p>
+<p><img alt="image0" src="_images/agg_upsetR.png" /></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show co-exist between Stx toxin</span>
 <span class="n">upset</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">order</span><span class="o">.</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;freq&quot;</span><span class="p">,</span><span class="n">sets</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">&quot;Stx2aB&quot;</span><span class="p">,</span><span class="s2">&quot;Stx2aA&quot;</span><span class="p">,</span><span class="s2">&quot;Stx2bA&quot;</span><span class="p">,</span><span class="s2">&quot;Stx1aA&quot;</span><span class="p">,</span><span class="s2">&quot;Stx1aB&quot;</span><span class="p">,</span><span class="s2">&quot;Stx2dB&quot;</span><span class="p">,</span><span class="s2">&quot;Stx2bB&quot;</span><span class="p">,</span><span class="s2">&quot;Stx1cA&quot;</span><span class="p">,</span><span class="s2">&quot;Stx1cB&quot;</span><span class="p">,</span><span class="s2">&quot;Stx2dA&quot;</span><span class="p">,</span><span class="s2">&quot;Stx1dB&quot;</span><span class="p">,</span><span class="s2">&quot;Stx2fA&quot;</span><span class="p">,</span><span class="s2">&quot;Stx2fB&quot;</span><span class="p">,</span><span class="s2">&quot;Stx1dA&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
-<p><img alt="image1" src="images/stx_upsetR.png" /></p>
+<p><img alt="image1" src="_images/stx_upsetR.png" /></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show co-exist between Bfp toxin</span>
 <span class="n">upset</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">order</span><span class="o">.</span><span class="n">by</span> <span class="o">=</span> <span class="s2">&quot;freq&quot;</span><span class="p">,</span><span class="n">sets</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">&quot;BfpA&quot;</span><span class="p">,</span><span class="s2">&quot;BfpB&quot;</span><span class="p">,</span><span class="s2">&quot;BfpC&quot;</span><span class="p">,</span><span class="s2">&quot;BfpD&quot;</span><span class="p">,</span><span class="s2">&quot;BfpE&quot;</span><span class="p">,</span><span class="s2">&quot;BfpF&quot;</span><span class="p">,</span><span class="s2">&quot;BfpG&quot;</span><span class="p">,</span><span class="s2">&quot;BfpH&quot;</span><span class="p">,</span><span class="s2">&quot;BfpI&quot;</span><span class="p">,</span><span class="s2">&quot;BfpJ&quot;</span><span class="p">,</span><span class="s2">&quot;BfpK&quot;</span><span class="p">,</span><span class="s2">&quot;BfpL&quot;</span><span class="p">,</span><span class="s2">&quot;BfpP&quot;</span><span class="p">,</span><span class="s2">&quot;BfpU&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
-<p><img alt="image2" src="images/bfp_upsetR.png" /></p>
+<p><img alt="image2" src="_images/bfp_upsetR.png" /></p>
 <p>Use NetworkX</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show co-exist between Shiga toxin and [Simplified Adhesin Factors]</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -315,10 +323,13 @@ upset(f,order.by=“freq”,sets=c(‘Agg3A’,‘Agg3B’,‘Agg3C’,‘Agg3D�
 <span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span><span class="n">node_size</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">weights</span><span class="p">,</span><span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">font_size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">node_color</span><span class="o">=</span><span class="n">node_color</span><span class="p">,</span><span class="n">edge_color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><img alt="image3" src="images/Stx_ad_circular.pdf" /></p>
-<p><img alt="image4" src="images/St_ad_circular.pdf" /></p>
-<p><img alt="image5" src="images/Elt_ad_circular.pdf" /></p>
-<p><img alt="image6" src="images/toxin_circular.pdf" /></p>
+<p><img alt="image3" src="_images/Stx_ad_circular.png" /></p>
+<p>Adhesin factors and heat stable toxin</p>
+<p><img alt="image4" src="_images/St_ad_circular.png" /></p>
+<p>Adhesin factors and heat labile toxin</p>
+<p><img alt="image5" src="_images/Elt_ad_circular.png" /></p>
+<p>All toxin</p>
+<p><img alt="image6" src="_images/toxin_circular.png" /></p>
 </div>
 <div class="section" id="in-silico-serotyping">
 <h3>In Silico Serotyping<a class="headerlink" href="#in-silico-serotyping" title="Permalink to this headline">¶</a></h3>
