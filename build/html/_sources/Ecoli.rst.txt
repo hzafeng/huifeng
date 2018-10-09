@@ -129,6 +129,9 @@ Result Analysis
        outfile.write('\n')
    outfile.close()
 
+Now we get the file of
+`Strain_Profile.csv <https://github.com/hzafeng/huifeng/tree/master/source/file>`__
+
 Data visualization
 
 Use UpsetR:
@@ -206,6 +209,9 @@ Adhesin factors and heat labile toxin
 All toxin
 
 |image6|
+
+`PDF <https://github.com/hzafeng/huifeng/tree/master/source/images>`__
+version please click here
 
 In Silico Serotyping
 --------------------

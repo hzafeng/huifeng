@@ -87,6 +87,8 @@ Result Analysis
         outfile.write('\n')
     outfile.close()
 
+Now we get the file of [Strain_Profile.csv](https://github.com/hzafeng/huifeng/tree/master/source/file)
+
 Data visualization
 
 Use UpsetR:
@@ -158,6 +160,7 @@ All toxin
 
 ![](images/toxin_circular.png)
 
+[PDF](https://github.com/hzafeng/huifeng/tree/master/source/images) version please click here
 
 ## In Silico Serotyping
 To understand the relationship between different serotype and their virulence profile, we use [BLAST](https://blast.ncbi.nlm.nih.gov/Blast.cgi) based in silico methods to serotype E.coli via [SerotypeFinder](https://cge.cbs.dtu.dk/services/SerotypeFinder/).
