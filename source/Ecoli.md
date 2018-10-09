@@ -91,10 +91,11 @@ Now we get the file of [Strain_Profile.csv](https://github.com/hzafeng/huifeng/t
 
 ### Data visualization
 
-#### Use UpsetR:
+#### Use [UpsetR](https://cran.r-project.org/web/packages/UpSetR/README.html):
 
     # Show coexist between Agg subunit
     library(UpSetR)
+    f=read.csv("Strain_Profile.csv")
     upset(f,order.by="freq",sets=c('Agg3A','Agg3B','Agg3C','Agg3D','Agg4A','Agg4B','Agg4C','Agg4D','Agg5A','AggA','AggB','AggC','AggD'))
 
 ![](images/agg_upsetR.png)
@@ -110,7 +111,7 @@ Now we get the file of [Strain_Profile.csv](https://github.com/hzafeng/huifeng/t
 
 ![](images/bfp_upsetR.png)
 
-#### Use NetworkX
+#### Use [NetworkX](https://networkx.github.io/documentation/latest/index.html)
 
     # Show co-exist between Shiga toxin and [Simplified Adhesin Factors]
     import matplotlib.pyplot as plt
@@ -169,4 +170,6 @@ To understand the relationship between different serotype and their virulence pr
     makeblastdb -in serotype.faa -dbtype prot
     blastp -query Ecoli.faa -db serotype.faa -out EcoliSerotype.blast -outfmt 6 -evalue 1e-10  -num_threads 8 -num_alignments 1
 
+## Phylogenetic Tree
 
+Still Running...

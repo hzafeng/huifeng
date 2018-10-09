@@ -134,13 +134,14 @@ Now we get the file of
 Data visualization
 ~~~~~~~~~~~~~~~~~~
 
-Use UpsetR:
-^^^^^^^^^^^
+Use `UpsetR <https://cran.r-project.org/web/packages/UpSetR/README.html>`__:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
    # Show coexist between Agg subunit
    library(UpSetR)
+   f=read.csv("Strain_Profile.csv")
    upset(f,order.by="freq",sets=c('Agg3A','Agg3B','Agg3C','Agg3D','Agg4A','Agg4B','Agg4C','Agg4D','Agg5A','AggA','AggB','AggC','AggD'))
 
 |image0|
@@ -159,8 +160,8 @@ Use UpsetR:
 
 |image2|
 
-Use NetworkX
-^^^^^^^^^^^^
+Use `NetworkX <https://networkx.github.io/documentation/latest/index.html>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -229,6 +230,11 @@ methods to serotype E.coli via
    cat *.faa > Ecoli.faa
    makeblastdb -in serotype.faa -dbtype prot
    blastp -query Ecoli.faa -db serotype.faa -out EcoliSerotype.blast -outfmt 6 -evalue 1e-10  -num_threads 8 -num_alignments 1
+
+Phylogenetic Tree
+-----------------
+
+Still Running…
 
 .. |image0| image:: images/agg_upsetR.png
 .. |image1| image:: images/stx_upsetR.png
