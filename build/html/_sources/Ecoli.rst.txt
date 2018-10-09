@@ -85,7 +85,7 @@ nucleotide into amino acid sequence.
 Now we can get predicted protein sequence of all E.coli genomes.
 
 Virulence Factors Detection
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------
 
 We use all protein sequence to run
 `BLAST <https://blast.ncbi.nlm.nih.gov/Blast.cgi>`__ against a In-house
@@ -131,8 +131,13 @@ Result Analysis
 
 Data visualization
 
-Use UpsetR: # Show coexist between Agg subunit library(UpSetR)
-upset(f,order.by=“freq”,sets=c(‘Agg3A’,‘Agg3B’,‘Agg3C’,‘Agg3D’,‘Agg4A’,‘Agg4B’,‘Agg4C’,‘Agg4D’,‘Agg5A’,‘AggA’,‘AggB’,‘AggC’,‘AggD’))
+Use UpsetR:
+
+::
+
+   # Show coexist between Agg subunit
+   library(UpSetR)
+   upset(f,order.by="freq",sets=c('Agg3A','Agg3B','Agg3C','Agg3D','Agg4A','Agg4B','Agg4C','Agg4D','Agg5A','AggA','AggB','AggC','AggD'))
 
 |image0|
 
@@ -203,7 +208,7 @@ All toxin
 |image6|
 
 In Silico Serotyping
-~~~~~~~~~~~~~~~~~~~~
+--------------------
 
 To understand the relationship between different serotype and their
 virulence profile, we use

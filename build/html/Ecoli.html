@@ -91,10 +91,10 @@
 <li class="toctree-l3"><a class="reference internal" href="#install-wget">Install Wget</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#download-via-accession-number">Download via accession number</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#translate-into-amino-acid-sequence">Translate into amino acid sequence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#virulence-factors-detection">Virulence Factors Detection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#in-silico-serotyping">In Silico Serotyping</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#virulence-factors-detection">Virulence Factors Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#in-silico-serotyping">In Silico Serotyping</a></li>
 </ul>
 </li>
 </ul>
@@ -233,8 +233,9 @@ nucleotide into amino acid sequence.</p>
 </div>
 <p>Now we can get predicted protein sequence of all E.coli genomes.</p>
 </div>
+</div>
 <div class="section" id="virulence-factors-detection">
-<h3>Virulence Factors Detection<a class="headerlink" href="#virulence-factors-detection" title="Permalink to this headline">¶</a></h3>
+<h2>Virulence Factors Detection<a class="headerlink" href="#virulence-factors-detection" title="Permalink to this headline">¶</a></h2>
 <p>We use all protein sequence to run
 <a class="reference external" href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">BLAST</a> against a In-house
 collected gene set:</p>
@@ -274,8 +275,12 @@ collected gene set:</p>
 </pre></div>
 </div>
 <p>Data visualization</p>
-<p>Use UpsetR: # Show coexist between Agg subunit library(UpSetR)
-upset(f,order.by=“freq”,sets=c(‘Agg3A’,‘Agg3B’,‘Agg3C’,‘Agg3D’,‘Agg4A’,‘Agg4B’,‘Agg4C’,‘Agg4D’,‘Agg5A’,‘AggA’,‘AggB’,‘AggC’,‘AggD’))</p>
+<p>Use UpsetR:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show coexist between Agg subunit</span>
+<span class="n">library</span><span class="p">(</span><span class="n">UpSetR</span><span class="p">)</span>
+<span class="n">upset</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">order</span><span class="o">.</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;freq&quot;</span><span class="p">,</span><span class="n">sets</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s1">&#39;Agg3A&#39;</span><span class="p">,</span><span class="s1">&#39;Agg3B&#39;</span><span class="p">,</span><span class="s1">&#39;Agg3C&#39;</span><span class="p">,</span><span class="s1">&#39;Agg3D&#39;</span><span class="p">,</span><span class="s1">&#39;Agg4A&#39;</span><span class="p">,</span><span class="s1">&#39;Agg4B&#39;</span><span class="p">,</span><span class="s1">&#39;Agg4C&#39;</span><span class="p">,</span><span class="s1">&#39;Agg4D&#39;</span><span class="p">,</span><span class="s1">&#39;Agg5A&#39;</span><span class="p">,</span><span class="s1">&#39;AggA&#39;</span><span class="p">,</span><span class="s1">&#39;AggB&#39;</span><span class="p">,</span><span class="s1">&#39;AggC&#39;</span><span class="p">,</span><span class="s1">&#39;AggD&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
 <p><img alt="image0" src="_images/agg_upsetR.png" /></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show co-exist between Stx toxin</span>
 <span class="n">upset</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">order</span><span class="o">.</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;freq&quot;</span><span class="p">,</span><span class="n">sets</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">&quot;Stx2aB&quot;</span><span class="p">,</span><span class="s2">&quot;Stx2aA&quot;</span><span class="p">,</span><span class="s2">&quot;Stx2bA&quot;</span><span class="p">,</span><span class="s2">&quot;Stx1aA&quot;</span><span class="p">,</span><span class="s2">&quot;Stx1aB&quot;</span><span class="p">,</span><span class="s2">&quot;Stx2dB&quot;</span><span class="p">,</span><span class="s2">&quot;Stx2bB&quot;</span><span class="p">,</span><span class="s2">&quot;Stx1cA&quot;</span><span class="p">,</span><span class="s2">&quot;Stx1cB&quot;</span><span class="p">,</span><span class="s2">&quot;Stx2dA&quot;</span><span class="p">,</span><span class="s2">&quot;Stx1dB&quot;</span><span class="p">,</span><span class="s2">&quot;Stx2fA&quot;</span><span class="p">,</span><span class="s2">&quot;Stx2fB&quot;</span><span class="p">,</span><span class="s2">&quot;Stx1dA&quot;</span><span class="p">))</span>
@@ -332,7 +337,7 @@ upset(f,order.by=“freq”,sets=c(‘Agg3A’,‘Agg3B’,‘Agg3C’,‘Agg3D�
 <p><img alt="image6" src="_images/toxin_circular.png" /></p>
 </div>
 <div class="section" id="in-silico-serotyping">
-<h3>In Silico Serotyping<a class="headerlink" href="#in-silico-serotyping" title="Permalink to this headline">¶</a></h3>
+<h2>In Silico Serotyping<a class="headerlink" href="#in-silico-serotyping" title="Permalink to this headline">¶</a></h2>
 <p>To understand the relationship between different serotype and their
 virulence profile, we use
 <a class="reference external" href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">BLAST</a> based in silico
@@ -342,7 +347,6 @@ methods to serotype E.coli via
 <span class="n">makeblastdb</span> <span class="o">-</span><span class="ow">in</span> <span class="n">serotype</span><span class="o">.</span><span class="n">faa</span> <span class="o">-</span><span class="n">dbtype</span> <span class="n">prot</span>
 <span class="n">blastp</span> <span class="o">-</span><span class="n">query</span> <span class="n">Ecoli</span><span class="o">.</span><span class="n">faa</span> <span class="o">-</span><span class="n">db</span> <span class="n">serotype</span><span class="o">.</span><span class="n">faa</span> <span class="o">-</span><span class="n">out</span> <span class="n">EcoliSerotype</span><span class="o">.</span><span class="n">blast</span> <span class="o">-</span><span class="n">outfmt</span> <span class="mi">6</span> <span class="o">-</span><span class="n">evalue</span> <span class="mf">1e-10</span>  <span class="o">-</span><span class="n">num_threads</span> <span class="mi">8</span> <span class="o">-</span><span class="n">num_alignments</span> <span class="mi">1</span>
 </pre></div>
-</div>
 </div>
 </div>
 </div>

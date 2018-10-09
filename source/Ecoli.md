@@ -50,7 +50,7 @@ Usually I only download fna file, and use [Prodigal](https://github.com/hyattpd/
 Now we can get predicted protein sequence of all E.coli genomes. 
 
 
-### Virulence Factors Detection
+## Virulence Factors Detection
 We use all protein sequence to run [BLAST](https://blast.ncbi.nlm.nih.gov/Blast.cgi) against a In-house collected gene set:
 
     cat *.faa > Ecoli.faa
@@ -90,6 +90,7 @@ Result Analysis
 Data visualization
 
 Use UpsetR:
+
     # Show coexist between Agg subunit
     library(UpSetR)
     upset(f,order.by="freq",sets=c('Agg3A','Agg3B','Agg3C','Agg3D','Agg4A','Agg4B','Agg4C','Agg4D','Agg5A','AggA','AggB','AggC','AggD'))
@@ -158,7 +159,7 @@ All toxin
 ![](images/toxin_circular.png)
 
 
-### In Silico Serotyping
+## In Silico Serotyping
 To understand the relationship between different serotype and their virulence profile, we use [BLAST](https://blast.ncbi.nlm.nih.gov/Blast.cgi) based in silico methods to serotype E.coli via [SerotypeFinder](https://cge.cbs.dtu.dk/services/SerotypeFinder/).
 
     cat *.faa > Ecoli.faa
