@@ -1,16 +1,17 @@
-Project of Escherichia coli
-===========================
+Project of *Escherichia coli*
+=============================
 
 Overview
 --------
 
 `Escherichia coli <https://en.wikipedia.org/wiki/Escherichia_coli>`__ is
 a Gram-negative, rod-shaped bacterium belonging to the family
-Enterobacteriaceae that was described in 1885 by a German pediatrician.
-Pathogenic E.coli is versatile due to the diversity of their gene sets.
-Virulence factors usually located on a virulence plasmid and can be
-acquired through gene transfer.Different combination of virulence
-factors may caused to different illness among human and animals.
+*Enterobacteriaceae* that was described in 1885 by a German
+pediatrician. Pathogenic E.coli is versatile due to the diversity of
+their gene sets. Virulence factors usually located on a virulence
+plasmid and can be acquired through gene transfer.Different combination
+of virulence factors may caused to different illness among human and
+animals.
 
 This time, we investigate the co-occurrance of virulence factors among
 all the available genome in the
@@ -213,8 +214,8 @@ All toxin
 
 |image6|
 
-`PDF <https://github.com/hzafeng/huifeng/tree/master/source/images/PDF>`__\ **please
-click here**
+`Get PDF
+File <(https://github.com/hzafeng/huifeng/tree/master/source/images/PDF)>`__
 
 In Silico Serotyping
 --------------------
@@ -222,7 +223,7 @@ In Silico Serotyping
 To understand the relationship between different serotype and their
 virulence profile, we use
 `BLAST <https://blast.ncbi.nlm.nih.gov/Blast.cgi>`__ based in silico
-methods to serotype E.coli via
+methods to serotype *E.coli* via
 `SerotypeFinder <https://cge.cbs.dtu.dk/services/SerotypeFinder/>`__.
 
 ::

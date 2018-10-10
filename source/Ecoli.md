@@ -1,7 +1,7 @@
-# Project of Escherichia coli
+# Project of *Escherichia coli*
 
 ## Overview
-[Escherichia coli](https://en.wikipedia.org/wiki/Escherichia_coli) is a Gram-negative, rod-shaped bacterium belonging to the family Enterobacteriaceae that was described in 1885 by a German pediatrician. Pathogenic E.coli is versatile due to the diversity of their gene sets. Virulence factors usually located on a virulence plasmid and can be acquired through gene transfer.Different combination of virulence factors may caused to different illness among human and animals. 
+[*Escherichia coli*](https://en.wikipedia.org/wiki/Escherichia_coli) is a Gram-negative, rod-shaped bacterium belonging to the family *Enterobacteriaceae* that was described in 1885 by a German pediatrician. Pathogenic E.coli is versatile due to the diversity of their gene sets. Virulence factors usually located on a virulence plasmid and can be acquired through gene transfer.Different combination of virulence factors may caused to different illness among human and animals. 
 
 This time, we investigate the co-occurrance of virulence factors among all the available genome 
 in the [Genbank](https://www.ncbi.nlm.nih.gov/genbank/). Meanwhile, we use phylogenetic tree to investigate relationship between different O/H serotype.
@@ -161,10 +161,10 @@ All toxin
 
 ![](images/toxin_circular.png)
 
-**[PDF](https://github.com/hzafeng/huifeng/tree/master/source/images/PDF)  please click here**
+**[Get PDF File]((https://github.com/hzafeng/huifeng/tree/master/source/images/PDF))**
 
 ## In Silico Serotyping
-To understand the relationship between different serotype and their virulence profile, we use [BLAST](https://blast.ncbi.nlm.nih.gov/Blast.cgi) based in silico methods to serotype E.coli via [SerotypeFinder](https://cge.cbs.dtu.dk/services/SerotypeFinder/).
+To understand the relationship between different serotype and their virulence profile, we use [BLAST](https://blast.ncbi.nlm.nih.gov/Blast.cgi) based in silico methods to serotype *E.coli* via [SerotypeFinder](https://cge.cbs.dtu.dk/services/SerotypeFinder/).
 
     cat *.faa > Ecoli.faa
     makeblastdb -in serotype.faa -dbtype prot
