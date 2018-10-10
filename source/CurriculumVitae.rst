@@ -113,8 +113,8 @@ Completed Project
    **fourth** author, I help my supervisor perform bioinformatics
    analysis.
 
-Project in progress
-~~~~~~~~~~~~~~~~~~~~
+Project in progress
+~~~~~~~~~~~~~~~~~~~
 
 -  Comparative Genomics of *Escherichia coli*
 -  Comparative Genomics of genus *Bacillus*

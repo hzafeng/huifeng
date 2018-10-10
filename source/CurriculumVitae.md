@@ -54,7 +54,7 @@ Manuscript "Metagenomic Reconstructions of Gut Microbial Metabolism in Weanling 
 * **Genomic of *Xanthomonas oryzae pv. oryzae*** 
 Manuscript "Population genomics and large-scale pathotypic evaluation reveal rapid evolutionary dynamics of a bacterial plant pathogen.Jinshui Z# , Zhiwei S# , Dehong Z, **Huifeng** *et al*" has been submitted to [Nature Communication](https://www.nature.com/ncomms/), as **fourth** author, I help my supervisor perform bioinformatics analysis.
 
-### Project in progress
+### Project in progress
 * Comparative Genomics of *Escherichia coli*
 * Comparative Genomics of genus *Bacillus*
 

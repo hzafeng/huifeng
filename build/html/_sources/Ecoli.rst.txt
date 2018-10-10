@@ -215,7 +215,7 @@ All toxin
 |image6|
 
 `Get PDF
-File <(https://github.com/hzafeng/huifeng/tree/master/source/images/PDF)>`__
+File <https://github.com/hzafeng/huifeng/tree/master/source/images/PDF>`__
 
 In Silico Serotyping
 --------------------

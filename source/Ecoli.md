@@ -161,7 +161,7 @@ All toxin
 
 ![](images/toxin_circular.png)
 
-**[Get PDF File]((https://github.com/hzafeng/huifeng/tree/master/source/images/PDF))**
+**[Get PDF File](https://github.com/hzafeng/huifeng/tree/master/source/images/PDF)**
 
 ## In Silico Serotyping
 To understand the relationship between different serotype and their virulence profile, we use [BLAST](https://blast.ncbi.nlm.nih.gov/Blast.cgi) based in silico methods to serotype *E.coli* via [SerotypeFinder](https://cge.cbs.dtu.dk/services/SerotypeFinder/).
