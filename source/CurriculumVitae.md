@@ -6,9 +6,11 @@ University Ave. 11121, Edmonton, Canada | huifeng@ualberta.ca
 
 ## Education
 **Bachelor of Bioinformatics**
+
 **2013.09 - 2017.06**  [Huazhong Agriculture University](http://www.hzau.edu.cn/en/HOME.htm) | Wuhan, China
 
 **Master of Biological Engineering**
+
 **2017.09 - Present** [Huazhong Agriculture University](http://www.hzau.edu.cn/en/HOME.htm) | Wuhan, China
 
 Supervised by [Jinshui Zheng](https://scholar.google.com.tw/citations?hl=zh-CN&user=L9z2gMAAAAAJ&view_op=list_works&sortby=pubdate)
