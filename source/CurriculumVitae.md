@@ -10,13 +10,16 @@ University Ave. 11121, Edmonton, Canada | huifeng@ualberta.ca
 
 **Master of Biological Engineering**
 **2017.09 - Present** [Huazhong Agriculture University](http://www.hzau.edu.cn/en/HOME.htm) | Wuhan, China
+
 Supervised by [Jinshui Zheng](https://scholar.google.com.tw/citations?hl=zh-CN&user=L9z2gMAAAAAJ&view_op=list_works&sortby=pubdate)
 
 **Visiting Student** 
 **2018.07 - Present**    [University of Alberta](https://www.ualberta.ca/) | Edmonton, Canada
+
 Supervised by [Michael Gänzle](https://scholar.google.ca/citations?user=Zc29kvEAAAAJ&hl=en)
 
 ## Skills & Abilities
+
 *	Python/R programing
 *   Linux operating system
 *	NGS data processing
