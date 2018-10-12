@@ -33,7 +33,7 @@ Install Wget
 
 On MacOs
 
-::
+.. code:: shell
 
    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
    brew install wget
@@ -49,7 +49,7 @@ According the
 `assembly_summary_genbank <ftp://ftp.ncbi.nlm.nih.gov/genomes/ASSEMBLY_REPORTS/assembly_summary_genbank.txt>`__
 in NCBI ftp site, we can get the genome through the organism name
 
-::
+.. code:: python
 
    import os
    os.mkdir("Ecoli_genome")
@@ -60,7 +60,7 @@ in NCBI ftp site, we can get the genome through the organism name
 
 or Use `Pandas <https://pandas.pydata.org/>`__
 
-::
+.. code:: python
 
    import pandas as pd
    f=pd.read_table("assembly_summary_genbank.txt",sep='\t',header=1)
@@ -74,7 +74,7 @@ Usually I only download fna file, and use
 `Prodigal <https://github.com/hyattpd/Prodigal>`__ to translate
 nucleotide into amino acid sequence.
 
-::
+.. code:: python
 
    for i in os.listdir('.'):
        order = 'prodigal -i '+i+' -q -a '+i'.faa'+' -d '+i+'.nucl'+' -o '+i+'.out'
@@ -90,7 +90,7 @@ We use all protein sequence to run
 `BLAST <https://blast.ncbi.nlm.nih.gov/Blast.cgi>`__ against a In-house
 collected gene set:
 
-::
+.. code:: shell
 
    cat *.faa > Ecoli.faa
    makeblastdb -in VF.faa -dbtype prot
@@ -99,7 +99,7 @@ collected gene set:
 Result Analysis
 ~~~~~~~~~~~~~~~
 
-::
+.. code:: pyhton
 
    # Get_Strain_VF_Profile_Matrix:
    strain_profile={}
@@ -138,7 +138,7 @@ Data visualization
 Use `UpsetR <https://cran.r-project.org/web/packages/UpSetR/README.html>`__:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-::
+.. code:: r
 
    # Show coexist between Agg subunit
    library(UpSetR)
@@ -147,14 +147,14 @@ Use `UpsetR <https://cran.r-project.org/web/packages/UpSetR/README.html>`__:
 
 |image0|
 
-::
+.. code:: r
 
    # Show co-exist between Stx toxin
    upset(f,order.by="freq",sets=c("Stx2aB","Stx2aA","Stx2bA","Stx1aA","Stx1aB","Stx2dB","Stx2bB","Stx1cA","Stx1cB","Stx2dA","Stx1dB","Stx2fA","Stx2fB","Stx1dA"))
 
 |image1|
 
-::
+.. code:: r
 
    # Show co-exist between Bfp toxin
    upset(f,order.by = "freq",sets=c("BfpA","BfpB","BfpC","BfpD","BfpE","BfpF","BfpG","BfpH","BfpI","BfpJ","BfpK","BfpL","BfpP","BfpU"))
@@ -164,7 +164,7 @@ Use `UpsetR <https://cran.r-project.org/web/packages/UpSetR/README.html>`__:
 Use `NetworkX <https://networkx.github.io/documentation/latest/index.html>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-::
+.. code:: python
 
    # Show co-exist between Shiga toxin and [Simplified Adhesin Factors]
    import matplotlib.pyplot as plt
@@ -226,7 +226,7 @@ virulence profile, we use
 methods to serotype *E.coli* via
 `SerotypeFinder <https://cge.cbs.dtu.dk/services/SerotypeFinder/>`__.
 
-::
+.. code:: shell
 
    cat *.faa > Ecoli.faa
    makeblastdb -in serotype.faa -dbtype prot

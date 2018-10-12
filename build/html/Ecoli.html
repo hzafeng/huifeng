@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Huifeng Hu" href="CurriculumVitae.html" /> 
+    <link rel="prev" title="CurriculumVitae" href="CurriculumVitae.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -84,7 +84,7 @@
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Bio.html">Bio</a></li>
-<li class="toctree-l1"><a class="reference internal" href="CurriculumVitae.html">Huifeng Hu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CurriculumVitae.html">CurriculumVitae</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Project of <em>Escherichia coli</em></a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#environment">Environment</a></li>
@@ -201,7 +201,7 @@ serotype.</p>
 <div class="section" id="install-wget">
 <h3>Install Wget<a class="headerlink" href="#install-wget" title="Permalink to this headline">¶</a></h3>
 <p>On MacOs</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ruby</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span>
+<div class="code shell highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ruby</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span>
 <span class="n">brew</span> <span class="n">install</span> <span class="n">wget</span>
 </pre></div>
 </div>
@@ -213,7 +213,7 @@ serotype.</p>
 <p>According the
 <a class="reference external" href="ftp://ftp.ncbi.nlm.nih.gov/genomes/ASSEMBLY_REPORTS/assembly_summary_genbank.txt">assembly_summary_genbank</a>
 in NCBI ftp site, we can get the genome through the organism name</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s2">&quot;Ecoli_genome&quot;</span><span class="p">)</span>
 <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s2">&quot;Ecoli_genome&quot;</span><span class="p">)</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;assembly_summary_genbank.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -222,7 +222,7 @@ in NCBI ftp site, we can get the genome through the organism name</p>
 </pre></div>
 </div>
 <p>or Use <a class="reference external" href="https://pandas.pydata.org/">Pandas</a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="n">f</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s2">&quot;assembly_summary_genbank.txt&quot;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">f</span><span class="p">[</span><span class="n">f</span><span class="p">[</span><span class="s1">&#39;organism_name&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Escherichia coli&#39;</span><span class="p">][</span><span class="s1">&#39;ftp_path&#39;</span><span class="p">]:</span>
     <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;wget &#39;</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="s1">&#39;_genomic.fna.gz&#39;</span><span class="p">)</span>
@@ -234,7 +234,7 @@ in NCBI ftp site, we can get the genome through the organism name</p>
 <p>Usually I only download fna file, and use
 <a class="reference external" href="https://github.com/hyattpd/Prodigal">Prodigal</a> to translate
 nucleotide into amino acid sequence.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">):</span>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">):</span>
     <span class="n">order</span> <span class="o">=</span> <span class="s1">&#39;prodigal -i &#39;</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="s1">&#39; -q -a &#39;</span><span class="o">+</span><span class="n">i</span><span class="s1">&#39;.faa&#39;</span><span class="o">+</span><span class="s1">&#39; -d &#39;</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="s1">&#39;.nucl&#39;</span><span class="o">+</span><span class="s1">&#39; -o &#39;</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="s1">&#39;.out&#39;</span>
     <span class="nb">print</span> <span class="n">order</span>
     <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">order</span><span class="p">)</span>
@@ -248,42 +248,13 @@ nucleotide into amino acid sequence.</p>
 <p>We use all protein sequence to run
 <a class="reference external" href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">BLAST</a> against a In-house
 collected gene set:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">*.</span><span class="n">faa</span> <span class="o">&gt;</span> <span class="n">Ecoli</span><span class="o">.</span><span class="n">faa</span>
+<div class="code shell highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">*.</span><span class="n">faa</span> <span class="o">&gt;</span> <span class="n">Ecoli</span><span class="o">.</span><span class="n">faa</span>
 <span class="n">makeblastdb</span> <span class="o">-</span><span class="ow">in</span> <span class="n">VF</span><span class="o">.</span><span class="n">faa</span> <span class="o">-</span><span class="n">dbtype</span> <span class="n">prot</span>
 <span class="n">blastp</span> <span class="o">-</span><span class="n">query</span> <span class="n">Ecoli</span><span class="o">.</span><span class="n">faa</span> <span class="o">-</span><span class="n">db</span> <span class="n">VF</span><span class="o">.</span><span class="n">faa</span> <span class="o">-</span><span class="n">out</span> <span class="n">VF</span><span class="o">.</span><span class="n">blast</span> <span class="o">-</span><span class="n">outfmt</span> <span class="mi">6</span> <span class="o">-</span><span class="n">evalue</span> <span class="mf">1e-10</span>  <span class="o">-</span><span class="n">num_threads</span> <span class="mi">8</span> <span class="o">-</span><span class="n">num_alignments</span> <span class="mi">1</span>
 </pre></div>
 </div>
 <div class="section" id="result-analysis">
 <h3>Result Analysis<a class="headerlink" href="#result-analysis" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get_Strain_VF_Profile_Matrix:</span>
-<span class="n">strain_profile</span><span class="o">=</span><span class="p">{}</span>
-<span class="n">vfs</span><span class="o">=</span><span class="p">[]</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;VF.blast&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">data</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
-        <span class="n">strain</span><span class="o">=</span><span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;|&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">vfs</span><span class="p">:</span>
-                <span class="n">vfs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)[</span><span class="mi">2</span><span class="p">])</span>
-            <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;|&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">strian_profile</span><span class="p">:</span>
-                <span class="n">strain_profile</span><span class="p">[</span><span class="n">starin</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]]</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">strain_profile</span><span class="p">[</span><span class="n">strain</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
-
-<span class="c1"># Write File</span>
-<span class="n">outfile</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Strain_Profile.csv&#39;</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
-<span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39; ,&#39;</span><span class="o">+</span><span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">vfs</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">strain_profile</span><span class="p">:</span>
-    <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">vfs</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">strain_profile</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
-            <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;,1&#39;</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;,0&#39;</span><span class="p">)</span>
-    <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="n">outfile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</pre></div>
-</div>
 <p>Now we get the file of
 <a class="reference external" href="https://github.com/hzafeng/huifeng/tree/master/source/file">Strain_Profile.csv</a></p>
 </div>
@@ -291,19 +262,19 @@ collected gene set:</p>
 <h3>Data visualization<a class="headerlink" href="#data-visualization" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="use-upsetr">
 <h4>Use <a class="reference external" href="https://cran.r-project.org/web/packages/UpSetR/README.html">UpsetR</a>:<a class="headerlink" href="#use-upsetr" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show coexist between Agg subunit</span>
+<div class="code r highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show coexist between Agg subunit</span>
 <span class="n">library</span><span class="p">(</span><span class="n">UpSetR</span><span class="p">)</span>
 <span class="n">f</span><span class="o">=</span><span class="n">read</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="s2">&quot;Strain_Profile.csv&quot;</span><span class="p">)</span>
 <span class="n">upset</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">order</span><span class="o">.</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;freq&quot;</span><span class="p">,</span><span class="n">sets</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s1">&#39;Agg3A&#39;</span><span class="p">,</span><span class="s1">&#39;Agg3B&#39;</span><span class="p">,</span><span class="s1">&#39;Agg3C&#39;</span><span class="p">,</span><span class="s1">&#39;Agg3D&#39;</span><span class="p">,</span><span class="s1">&#39;Agg4A&#39;</span><span class="p">,</span><span class="s1">&#39;Agg4B&#39;</span><span class="p">,</span><span class="s1">&#39;Agg4C&#39;</span><span class="p">,</span><span class="s1">&#39;Agg4D&#39;</span><span class="p">,</span><span class="s1">&#39;Agg5A&#39;</span><span class="p">,</span><span class="s1">&#39;AggA&#39;</span><span class="p">,</span><span class="s1">&#39;AggB&#39;</span><span class="p">,</span><span class="s1">&#39;AggC&#39;</span><span class="p">,</span><span class="s1">&#39;AggD&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 <p><img alt="image0" src="_images/agg_upsetR.png" /></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show co-exist between Stx toxin</span>
+<div class="code r highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show co-exist between Stx toxin</span>
 <span class="n">upset</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">order</span><span class="o">.</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;freq&quot;</span><span class="p">,</span><span class="n">sets</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">&quot;Stx2aB&quot;</span><span class="p">,</span><span class="s2">&quot;Stx2aA&quot;</span><span class="p">,</span><span class="s2">&quot;Stx2bA&quot;</span><span class="p">,</span><span class="s2">&quot;Stx1aA&quot;</span><span class="p">,</span><span class="s2">&quot;Stx1aB&quot;</span><span class="p">,</span><span class="s2">&quot;Stx2dB&quot;</span><span class="p">,</span><span class="s2">&quot;Stx2bB&quot;</span><span class="p">,</span><span class="s2">&quot;Stx1cA&quot;</span><span class="p">,</span><span class="s2">&quot;Stx1cB&quot;</span><span class="p">,</span><span class="s2">&quot;Stx2dA&quot;</span><span class="p">,</span><span class="s2">&quot;Stx1dB&quot;</span><span class="p">,</span><span class="s2">&quot;Stx2fA&quot;</span><span class="p">,</span><span class="s2">&quot;Stx2fB&quot;</span><span class="p">,</span><span class="s2">&quot;Stx1dA&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 <p><img alt="image1" src="_images/stx_upsetR.png" /></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show co-exist between Bfp toxin</span>
+<div class="code r highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show co-exist between Bfp toxin</span>
 <span class="n">upset</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">order</span><span class="o">.</span><span class="n">by</span> <span class="o">=</span> <span class="s2">&quot;freq&quot;</span><span class="p">,</span><span class="n">sets</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">&quot;BfpA&quot;</span><span class="p">,</span><span class="s2">&quot;BfpB&quot;</span><span class="p">,</span><span class="s2">&quot;BfpC&quot;</span><span class="p">,</span><span class="s2">&quot;BfpD&quot;</span><span class="p">,</span><span class="s2">&quot;BfpE&quot;</span><span class="p">,</span><span class="s2">&quot;BfpF&quot;</span><span class="p">,</span><span class="s2">&quot;BfpG&quot;</span><span class="p">,</span><span class="s2">&quot;BfpH&quot;</span><span class="p">,</span><span class="s2">&quot;BfpI&quot;</span><span class="p">,</span><span class="s2">&quot;BfpJ&quot;</span><span class="p">,</span><span class="s2">&quot;BfpK&quot;</span><span class="p">,</span><span class="s2">&quot;BfpL&quot;</span><span class="p">,</span><span class="s2">&quot;BfpP&quot;</span><span class="p">,</span><span class="s2">&quot;BfpU&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -311,7 +282,7 @@ collected gene set:</p>
 </div>
 <div class="section" id="use-networkx">
 <h4>Use <a class="reference external" href="https://networkx.github.io/documentation/latest/index.html">NetworkX</a><a class="headerlink" href="#use-networkx" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show co-exist between Shiga toxin and [Simplified Adhesin Factors]</span>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show co-exist between Shiga toxin and [Simplified Adhesin Factors]</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
 <span class="k">def</span> <span class="nf">get_co_oc_from_show_vfs</span><span class="p">(</span><span class="n">show_vf</span><span class="p">):</span>
@@ -365,7 +336,7 @@ virulence profile, we use
 <a class="reference external" href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">BLAST</a> based in silico
 methods to serotype <em>E.coli</em> via
 <a class="reference external" href="https://cge.cbs.dtu.dk/services/SerotypeFinder/">SerotypeFinder</a>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">*.</span><span class="n">faa</span> <span class="o">&gt;</span> <span class="n">Ecoli</span><span class="o">.</span><span class="n">faa</span>
+<div class="code shell highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">*.</span><span class="n">faa</span> <span class="o">&gt;</span> <span class="n">Ecoli</span><span class="o">.</span><span class="n">faa</span>
 <span class="n">makeblastdb</span> <span class="o">-</span><span class="ow">in</span> <span class="n">serotype</span><span class="o">.</span><span class="n">faa</span> <span class="o">-</span><span class="n">dbtype</span> <span class="n">prot</span>
 <span class="n">blastp</span> <span class="o">-</span><span class="n">query</span> <span class="n">Ecoli</span><span class="o">.</span><span class="n">faa</span> <span class="o">-</span><span class="n">db</span> <span class="n">serotype</span><span class="o">.</span><span class="n">faa</span> <span class="o">-</span><span class="n">out</span> <span class="n">EcoliSerotype</span><span class="o">.</span><span class="n">blast</span> <span class="o">-</span><span class="n">outfmt</span> <span class="mi">6</span> <span class="o">-</span><span class="n">evalue</span> <span class="mf">1e-10</span>  <span class="o">-</span><span class="n">num_threads</span> <span class="mi">8</span> <span class="o">-</span><span class="n">num_alignments</span> <span class="mi">1</span>
 </pre></div>
@@ -386,7 +357,7 @@ methods to serotype <em>E.coli</em> via
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="CurriculumVitae.html" class="btn btn-neutral" title="Huifeng Hu" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="CurriculumVitae.html" class="btn btn-neutral" title="CurriculumVitae" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

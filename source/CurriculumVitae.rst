@@ -1,5 +1,8 @@
+CurriculumVitae
+===============
+
 Huifeng Hu
-==========
+----------
 
 Shizishan Road No.1, Wuhan, China \| hzauhhf@gmail.com
 
@@ -102,20 +105,12 @@ Completed Project
 -  **Metagenomic Reconstructions of Gut Microbial Metabolism in Weanling
    Pigs** Manuscript “Metagenomic Reconstructions of Gut Microbial
    Metabolism in Weanling Pigs. Weilan W\ *,*\ **Huifeng**, Ruurd TZ,
-   Jinshui Z#, Michael G#” has been submitted to `The ISME
-   Journal <https://www.nature.com/ismej/>`__, as **co-first** author, I
-   perform bioinformatics analysis.
+   Jinshui Z#, Michael G#” was under prepare
 -  **Genomic of Xanthomonas oryzae pv. oryzae** Manuscript “Population
    genomics and large-scale pathotypic evaluation reveal rapid
    evolutionary dynamics of a bacterial plant pathogen.Jinshui Z# ,
-   Zhiwei S# , Dehong Z, **Huifeng** *et al*” has been submitted to
-   `Nature Communication <https://www.nature.com/ncomms/>`__, as
-   **fourth** author, I help my supervisor perform bioinformatics
-   analysis.
-
-Project in progress
-~~~~~~~~~~~~~~~~~~~
-
+   Zhiwei S# , Dehong Z, **Huifeng** *et al*” was under prepare ###
+   Project in progress
 -  Comparative Genomics of *Escherichia coli*
 -  Comparative Genomics of genus *Bacillus*
 
