@@ -109,8 +109,11 @@ Completed Project
 -  **Genomic of Xanthomonas oryzae pv. oryzae** Manuscript “Population
    genomics and large-scale pathotypic evaluation reveal rapid
    evolutionary dynamics of a bacterial plant pathogen.Jinshui Z# ,
-   Zhiwei S# , Dehong Z, **Huifeng** *et al*” was under prepare ###
-   Project in progress
+   Zhiwei S# , Dehong Z, **Huifeng** *et al*” was under prepare
+
+Project in progress
+~~~~~~~~~~~~~~~~~~~
+
 -  Comparative Genomics of *Escherichia coli*
 -  Comparative Genomics of genus *Bacillus*
 
