@@ -179,6 +179,7 @@ blastp -query Ecoli.faa -db serotype.faa -out EcoliSerotype.blast -outfmt 6 -eva
 * Use O&H antigen and only O antigen for phylogenetic analysis(totally 1616 isolate)
 
 Use [Assembly-stat](https://github.com/sanger-pathogens/assembly-stats) to get assembly quality of each genome, and each serotype group select top genome completeness isolate to construct phylogeneitc tree.
+
 ## Phylogenetic Tree Construction
 
 ### Use [Prokka](https://github.com/tseemann/prokka) Annotate
@@ -331,6 +332,7 @@ scale_fill_manual(values = c("white","Red"),breaks=c("0","1"))
 
 
 ![](/images/ggtree_heatmap_normal.png)
+
 ![](/images/ggtree_heatmap_circular.png)
 
 

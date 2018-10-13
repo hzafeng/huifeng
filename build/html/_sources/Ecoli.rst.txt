@@ -244,8 +244,10 @@ Result Statistics
 Use
 `Assembly-stat <https://github.com/sanger-pathogens/assembly-stats>`__
 to get assembly quality of each genome, and each serotype group select
-top genome completeness isolate to construct phylogeneitc tree. ##
+top genome completeness isolate to construct phylogeneitc tree.
+
 Phylogenetic Tree Construction
+------------------------------
 
 Use `Prokka <https://github.com/tseemann/prokka>`__ Annotate
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -414,7 +416,9 @@ Visualize Tree with `ggtree <https://github.com/GuangchuangYu/ggtree>`__
                 font.size=1.2)+
    scale_fill_manual(values = c("white","Red"),breaks=c("0","1"))
 
-|image8| |image9|
+|image8|
+
+|image9|
 
 Get
 `PDF <https://github.com/hzafeng/huifeng/tree/master/source/images/PDF>`__
