@@ -103,8 +103,24 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#in-silico-serotyping">In Silico Serotyping</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#phylogenetic-tree">Phylogenetic Tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#in-silico-serotyping">In Silico Serotyping</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#result-statistics">Result Statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#use-prokka-annotate">Use Prokka Annotate</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#build-local-database-of-escherichia-coli">Build local Database of <em>Escherichia coli</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#run-prokka">Run prokka</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#use-roary-get-single-copy-gene">Use Roary get single copy gene</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#model-select">Model Select</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#use-fasttree-construct-phylogenetic-tree">Use FastTree construct phylogenetic tree</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#calculate-population-structure">Calculate Population Structure</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tree-visualization">Tree Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#visualize-tree-with-pan-genome-profile-use-roary-script">Visualize Tree with Pan-genome Profile( Use Roary script)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#visualize-tree-with-ggtree">Visualize Tree with ggtree</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -341,10 +357,149 @@ methods to serotype <em>E.coli</em> via
 <span class="n">blastp</span> <span class="o">-</span><span class="n">query</span> <span class="n">Ecoli</span><span class="o">.</span><span class="n">faa</span> <span class="o">-</span><span class="n">db</span> <span class="n">serotype</span><span class="o">.</span><span class="n">faa</span> <span class="o">-</span><span class="n">out</span> <span class="n">EcoliSerotype</span><span class="o">.</span><span class="n">blast</span> <span class="o">-</span><span class="n">outfmt</span> <span class="mi">6</span> <span class="o">-</span><span class="n">evalue</span> <span class="mf">1e-10</span>  <span class="o">-</span><span class="n">num_threads</span> <span class="mi">8</span> <span class="o">-</span><span class="n">num_alignments</span> <span class="mi">1</span>
 </pre></div>
 </div>
+<div class="section" id="result-statistics">
+<h3>Result Statistics<a class="headerlink" href="#result-statistics" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>10450 isolate with O antigen</li>
+<li>11657 isolate with H antigen</li>
+<li>10361 isolate with O&amp;H antigen(including 1576 serotype)</li>
+<li>Use O&amp;H antigen and only O antigen for phylogenetic analysis(totally
+1616 isolate)</li>
+</ul>
+<p>Use
+<a class="reference external" href="https://github.com/sanger-pathogens/assembly-stats">Assembly-stat</a>
+to get assembly quality of each genome, and each serotype group select
+top genome completeness isolate to construct phylogeneitc tree. ##
+Phylogenetic Tree Construction</p>
 </div>
-<div class="section" id="phylogenetic-tree">
-<h2>Phylogenetic Tree<a class="headerlink" href="#phylogenetic-tree" title="Permalink to this headline">¶</a></h2>
-<p>Still Running…</p>
+<div class="section" id="use-prokka-annotate">
+<h3>Use <a class="reference external" href="https://github.com/tseemann/prokka">Prokka</a> Annotate<a class="headerlink" href="#use-prokka-annotate" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="build-local-database-of-escherichia-coli">
+<h4>Build local Database of <em>Escherichia coli</em><a class="headerlink" href="#build-local-database-of-escherichia-coli" title="Permalink to this headline">¶</a></h4>
+<p>Use all “Complete genome” level of genome completeness strain to
+construct database. Download gbk file same as <a class="reference external" href="#download-via-accession-number">Download via accession
+number</a>
+(<a class="reference external" href="https://huifeng.readthedocs.io/en/latest/Ecoli.html#download-via-accession-number">https://huifeng.readthedocs.io/en/latest/Ecoli.html#download-via-accession-number</a>)</p>
+<div class="code shell highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">prokka</span><span class="o">-</span><span class="n">genbank_to_fasta_db</span> <span class="o">*.</span><span class="n">gbk</span> <span class="o">&gt;</span> <span class="n">ecoli</span><span class="o">.</span><span class="n">faa</span>
+<span class="n">cd</span><span class="o">-</span><span class="n">hit</span> <span class="o">-</span><span class="n">i</span> <span class="n">ecoli</span><span class="o">.</span><span class="n">faa</span> <span class="o">-</span><span class="n">o</span> <span class="n">ecoli</span> <span class="o">-</span><span class="n">T</span> <span class="mi">0</span> <span class="o">-</span><span class="n">M</span> <span class="mi">0</span> <span class="o">-</span><span class="n">g</span> <span class="mi">1</span> <span class="o">-</span><span class="n">s</span> <span class="mf">0.8</span> <span class="o">-</span><span class="n">c</span> <span class="mf">0.9</span>
+<span class="n">rm</span> <span class="o">-</span><span class="n">fv</span> <span class="n">ecoli</span><span class="o">.</span><span class="n">faa</span> <span class="n">ecoli</span><span class="o">.</span><span class="n">bak</span><span class="o">.</span><span class="n">clstr</span> <span class="n">ecoli</span><span class="o">.</span><span class="n">clstr</span>
+<span class="n">makeblastdb</span> <span class="o">-</span><span class="n">dbtype</span> <span class="n">prot</span> <span class="o">-</span><span class="ow">in</span> <span class="n">ecoli</span>
+<span class="n">mv</span> <span class="n">ecoli</span><span class="o">.</span><span class="n">p</span><span class="o">*</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">prokka</span><span class="o">/</span><span class="n">db</span><span class="o">/</span><span class="n">genus</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="run-prokka">
+<h4>Run prokka<a class="headerlink" href="#run-prokka" title="Permalink to this headline">¶</a></h4>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">):</span>
+    <span class="n">prokka</span> <span class="o">=</span> <span class="s1">&#39;prokka --usegenus --genus ecoli --outdir ./prokka_out&#39;</span><span class="o">+</span><span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39; --locustag &#39;</span><span class="o">+</span><span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39; --prefix &#39;</span><span class="o">+</span><span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39; --cpus 32 &#39;</span><span class="o">+</span><span class="n">i</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">prokka</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="use-roary-get-single-copy-gene">
+<h4>Use <a class="reference external" href="https://github.com/sanger-pathogens/Roary">Roary</a> get single copy gene<a class="headerlink" href="#use-roary-get-single-copy-gene" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">roary</span> <span class="o">-</span><span class="n">a</span>  <span class="c1"># Check dependency</span>
+<span class="n">mkdir</span> <span class="n">gff</span><span class="p">;</span><span class="n">mkdir</span> <span class="n">ffn</span><span class="p">;</span> <span class="n">mkdir</span> <span class="n">faa</span>
+<span class="n">mv</span> <span class="o">*.</span><span class="n">gff</span> <span class="o">./</span><span class="n">gff</span><span class="p">;</span><span class="n">mv</span> <span class="o">*.</span><span class="n">ffn</span> <span class="o">./</span><span class="n">ffn</span><span class="p">;</span> <span class="n">mv</span> <span class="o">*.</span><span class="n">faa</span> <span class="o">./</span><span class="n">faa</span>
+<span class="n">cat</span> <span class="o">./</span><span class="n">ffn</span><span class="o">/*.</span><span class="n">ffn</span> <span class="o">&gt;</span> <span class="o">./</span><span class="n">ecoli</span><span class="o">.</span><span class="n">ffn</span>
+<span class="n">raory</span> <span class="o">*.</span><span class="n">gff</span>
+<span class="c1"># get single copy gene</span>
+</pre></div>
+</div>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">f</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;gene_presence_absence.csv&quot;</span><span class="p">,</span><span class="n">low_memory</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">f1</span><span class="o">=</span><span class="n">f</span><span class="p">[(</span><span class="n">f</span><span class="p">[</span><span class="s1">&#39;No. isolates&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1616</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">f</span><span class="p">[</span><span class="s1">&#39;Avg sequences per isolate&#39;</span><span class="p">]</span><span class="o">==</span><span class="mf">1.0</span><span class="p">]</span>
+<span class="n">strain_id</span><span class="o">=</span><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">f1</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="s1">&#39;GCA_&#39;</span> <span class="ow">in</span> <span class="n">i</span><span class="p">]</span>
+<span class="n">strains</span><span class="o">=</span><span class="n">f1</span><span class="p">[</span><span class="n">strain_id</span><span class="p">]</span>
+<span class="n">strain_list</span><span class="o">=</span><span class="n">strains</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">id2seq</span><span class="o">=</span><span class="p">{}</span>
+<span class="c1">## Get a dict of id --&gt; seq</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;ecoli.ffn&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;&gt;&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="n">id2seq</span><span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]]</span><span class="o">=</span><span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+<span class="c1">## write each family sequemces</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">68</span><span class="p">):</span>
+    <span class="n">of_name</span><span class="o">=</span><span class="s1">&#39;family&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">of</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="n">of_name</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">strain_list</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+        <span class="n">of</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;&gt;&#39;</span><span class="o">+</span><span class="n">j</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">+</span><span class="n">d</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">of</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Use <a class="reference external" href="https://www.drive5.com/muscle/">Muscle</a> to align sequence</p>
+<div class="code shell highlight-default notranslate"><div class="highlight"><pre><span></span>for i in family*
+do
+    muscle -in $i -out $i+&#39;_aligned.fasta&#39;
+done
+</pre></div>
+</div>
+<p>Connect each alignment file:</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">dicts</span><span class="o">=</span><span class="p">{}</span> <span class="c1">## Use strainID as key, add each sequence in to the value</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="s1">&#39;_aligned.fasta&#39;</span> <span class="ow">in</span> <span class="n">i</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;&gt;&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">j</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dicts</span><span class="p">:</span>
+                    <span class="n">dicts</span><span class="p">[</span><span class="n">j</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]]</span><span class="o">=</span><span class="n">j</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">dicts</span><span class="p">[</span><span class="n">j</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]]</span><span class="o">+=</span><span class="n">j</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">outfile</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;connected.faa&#39;</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">dicts</span><span class="p">:</span>
+    <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;&gt;&#39;</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">+</span><span class="n">dicts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">outfile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>In this way, we can get connected.fna file of connected DNA sequence for
+Population Structure calculation</p>
+</div>
+<div class="section" id="model-select">
+<h4>Model Select<a class="headerlink" href="#model-select" title="Permalink to this headline">¶</a></h4>
+<p>Use <a class="reference external" href="https://github.com/ddarriba/prottest3">ProtTest</a></p>
+<div class="code shell highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">java</span> <span class="o">-</span><span class="n">jar</span> <span class="n">prottest</span><span class="o">-</span><span class="mf">3.4</span><span class="o">.</span><span class="mf">2.</span><span class="n">jar</span> <span class="o">-</span><span class="n">i</span> <span class="n">connected</span><span class="o">.</span><span class="n">faa</span> <span class="o">-</span><span class="n">S</span> <span class="mi">2</span> <span class="o">-</span><span class="nb">all</span><span class="o">-</span><span class="n">distributions</span> <span class="o">-</span><span class="nb">all</span> <span class="o">-</span><span class="n">tc</span> <span class="mf">0.5</span> <span class="o">&gt;</span> <span class="n">prottest</span><span class="o">.</span><span class="n">output</span>
+</pre></div>
+</div>
+<p>In this work, we get “JTT+I+G” model.</p>
+</div>
+<div class="section" id="use-fasttree-construct-phylogenetic-tree">
+<h4>Use <a class="reference external" href="http://www.microbesonline.org/fasttree/">FastTree</a> construct phylogenetic tree<a class="headerlink" href="#use-fasttree-construct-phylogenetic-tree" title="Permalink to this headline">¶</a></h4>
+<div class="code shell highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FastTree</span> <span class="o">-</span><span class="n">gamma</span> <span class="n">connected</span><span class="o">.</span><span class="n">faa</span> <span class="o">&gt;</span> <span class="n">fast</span><span class="o">.</span><span class="n">tree</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="calculate-population-structure">
+<h4>Calculate Population Structure<a class="headerlink" href="#calculate-population-structure" title="Permalink to this headline">¶</a></h4>
+<p>Use <a class="reference external" href="https://github.com/gtonkinhill/rhierbaps">rhierbaps</a>(R
+implementation of
+<a class="reference external" href="http://www.helsinki.fi/bsg/software/BAPS/">hierBAPS</a>)</p>
+<div class="code r highlight-default notranslate"><div class="highlight"><pre><span></span>devtools::install_github(&quot;gtonkinhill/rhierbaps&quot;)
+library(rhierbaps)
+snp.matrix &lt;- load_fasta(connected.fasta)
+hb.results &lt;- hierBAPS(snp.matrix, max.depth = 2, n.pops = 12, quiet = TRUE)
+write.csv(&quot;BAPS.csv&quot;,hb.results$partition.df)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="tree-visualization">
+<h2>Tree Visualization<a class="headerlink" href="#tree-visualization" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="visualize-tree-with-pan-genome-profile-use-roary-script">
+<h3>Visualize Tree with Pan-genome Profile( Use <a class="reference external" href="https://github.com/sanger-pathogens/Roary/tree/master/contrib/roary_plots">Roary script</a>)<a class="headerlink" href="#visualize-tree-with-pan-genome-profile-use-roary-script" title="Permalink to this headline">¶</a></h3>
+<div class="code shell highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">roary_plots</span><span class="o">.</span><span class="n">py</span> <span class="n">fast</span><span class="o">.</span><span class="n">tree</span> <span class="n">gene_presence_absence</span><span class="o">.</span><span class="n">csv</span>
+</pre></div>
+</div>
+<p><img alt="image7" src="pangenome_matrix.png" /></p>
+</div>
+<div class="section" id="visualize-tree-with-ggtree">
+<h3>Visualize Tree with <a class="reference external" href="https://github.com/GuangchuangYu/ggtree">ggtree</a><a class="headerlink" href="#visualize-tree-with-ggtree" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image8" src="ggtree_heatmap.png" /></p>
+<p>Get
+<a class="reference external" href="https://github.com/hzafeng/huifeng/tree/master/source/images/PDF">PDF</a></p>
+</div>
 </div>
 </div>
 

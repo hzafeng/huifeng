@@ -170,6 +170,142 @@ cat *.faa > Ecoli.faa
 makeblastdb -in serotype.faa -dbtype prot
 blastp -query Ecoli.faa -db serotype.faa -out EcoliSerotype.blast -outfmt 6 -evalue 1e-10  -num_threads 8 -num_alignments 1
 ```
-## Phylogenetic Tree
 
-Still Running...
+### Result Statistics
+
+* 10450 isolate with O antigen
+* 11657 isolate with H antigen
+* 10361 isolate with O&H antigen(including 1576 serotype)
+* Use O&H antigen and only O antigen for phylogenetic analysis(totally 1616 isolate)
+
+Use [Assembly-stat](https://github.com/sanger-pathogens/assembly-stats) to get assembly quality of each genome, and each serotype group select top genome completeness isolate to construct phylogeneitc tree.
+## Phylogenetic Tree Construction
+
+### Use [Prokka](https://github.com/tseemann/prokka) Annotate
+
+#### Build local Database of *Escherichia coli*
+Use all "Complete genome" level of genome completeness strain to construct database.
+    Download gbk file same as [Download via accession number]
+    (https://huifeng.readthedocs.io/en/latest/Ecoli.html#download-via-accession-number)
+
+
+
+ ```shell   
+    prokka-genbank_to_fasta_db *.gbk > ecoli.faa
+    cd-hit -i ecoli.faa -o ecoli -T 0 -M 0 -g 1 -s 0.8 -c 0.9
+    rm -fv ecoli.faa ecoli.bak.clstr ecoli.clstr
+    makeblastdb -dbtype prot -in ecoli
+    mv ecoli.p* /path/to/prokka/db/genus/
+```
+
+#### Run prokka 
+
+```python
+import os
+for i in os.listdir('.'):   
+    prokka = 'prokka --usegenus --genus ecoli --outdir ./prokka_out'+i.split('.')[0]+' --locustag '+i.split('.')[0]+' --prefix '+i.split('.')[0]+' --cpus 32 '+i
+    os.system(prokka)
+```
+
+#### Use [Roary](https://github.com/sanger-pathogens/Roary) get single copy gene
+
+    roary -a  # Check dependency
+    mkdir gff;mkdir ffn; mkdir faa
+    mv *.gff ./gff;mv *.ffn ./ffn; mv *.faa ./faa 
+    cat ./ffn/*.ffn > ./ecoli.ffn
+    raory *.gff 
+    # get single copy gene
+
+```python
+import pandas as pd
+f=pd.read_csv("gene_presence_absence.csv",low_memory=False)
+f1=f[(f['No. isolates']==1616) & f['Avg sequences per isolate']==1.0]
+strain_id=[i for i in f1.columns if 'GCA_' in i]
+strains=f1[strain_id]
+strain_list=strains.values.tolist()
+id2seq={}
+## Get a dict of id --> seq
+with open(r'ecoli.ffn') as f:
+    data=f.read().split('>')[1:]
+    for i in data:
+        id2seq[i.split('\n')[0].split(' ')[0]]=i.split('\n',1)[1]
+## write each family sequemces
+for i in range(68):
+    of_name='family'+str(i)
+    of=open(of_name,'w')
+    for j in strain_list[i]:
+        of.write('>'+j+'\n'+d[j]+'\n')
+    of.close()
+
+```
+
+Use [Muscle](https://www.drive5.com/muscle/) to align sequence
+
+```shell
+for i in family*
+do
+    muscle -in $i -out $i+'_aligned.fasta'
+done
+```
+
+Connect each alignment file:
+```Python
+import os
+dicts={} ## Use strainID as key, add each sequence in to the value
+for i in os.listdir('.'):
+    if '_aligned.fasta' in i:
+        with open(i,'r') as f:
+            data=f.read().split('>')[1:]
+            for j in data:
+                if j.split('\n',1)[0] not in dicts:
+                    dicts[j.split('\n',1)[0]]=j.split('\n',1)[1]
+                else:
+                    dicts[j.split('\n',1)[0]]+=j.split('\n',1)[1]
+outfile=open('connected.faa','w')
+for i in dicts:
+    outfile.write('>'+i+'\n'+dicts[i]+'\n')
+outfile.close()
+
+```
+In this way, we can get connected.fna file of connected DNA sequence for Population Structure calculation
+
+#### Model Select
+
+Use [ProtTest](https://github.com/ddarriba/prottest3)
+```shell
+java -jar prottest-3.4.2.jar -i connected.faa -S 2 -all-distributions -all -tc 0.5 > prottest.output
+```
+
+In this work, we get "JTT+I+G" model.
+
+#### Use [FastTree](http://www.microbesonline.org/fasttree/) construct phylogenetic tree
+```shell
+FastTree -gamma connected.faa > fast.tree 
+```
+
+#### Calculate Population Structure
+Use [rhierbaps](https://github.com/gtonkinhill/rhierbaps)(R implementation of [hierBAPS](http://www.helsinki.fi/bsg/software/BAPS/))
+```R
+devtools::install_github("gtonkinhill/rhierbaps")
+library(rhierbaps)
+snp.matrix <- load_fasta(connected.fasta)
+hb.results <- hierBAPS(snp.matrix, max.depth = 2, n.pops = 12, quiet = TRUE)
+write.csv("BAPS.csv",hb.results$partition.df)
+```
+
+## Tree Visualization
+
+### Visualize Tree with Pan-genome Profile( Use [Roary script](https://github.com/sanger-pathogens/Roary/tree/master/contrib/roary_plots))
+```Shell
+python roary_plots.py fast.tree gene_presence_absence.csv
+```
+
+![](pangenome_matrix.png)
+
+
+### Visualize Tree with [ggtree](https://github.com/GuangchuangYu/ggtree)
+
+
+![](ggtree_heatmap.png)
+
+Get [PDF](https://github.com/hzafeng/huifeng/tree/master/source/images/PDF)
