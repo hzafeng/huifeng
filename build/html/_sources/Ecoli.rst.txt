@@ -390,10 +390,36 @@ Visualize Tree with Pan-genome Profile( Use `Roary script <https://github.com/sa
 Visualize Tree with `ggtree <https://github.com/GuangchuangYu/ggtree>`__
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-|image8|
+.. code:: r
+
+   library(ggtree)
+   library(ggplot2)
+   cluster=read.csv("BAPS_reid.csv")
+   info<-read.csv("label2.csv")
+   heatmapData<-read.csv("show_vf_profile.csv",row.names=2)
+   heatmapData=heatmapData[2:12]
+   rn <- rownames(heatmapData)
+   heatmapData <- as.data.frame(sapply(heatmapData, as.character))
+   rownames(heatmapData) <- rn
+
+   f<-read.tree("Out_root.nwk.txt")
+   group=split(cluster$isolate,cluster$group_level_1)
+   f <- groupOTU(f, group)
+   p<-ggtree(f,aes(color=group)) %<+% info +
+   geom_tiplab(aes(label=Serotype),align=T, linetype=NA,size=0.8)+theme(legend.position = "right")+scale_color_manual(values=c('black','#8DD3C7','#FFFFB3','#BEBADA','#FB8072','#80B1D3','#FDB462','#B3DE69','#FCCDE5', '#D9D9D9' ,'#BC80BD', '#CCEBC5', '#FFED6F'))
+
+   p3<-gheatmap(p,heatmapData,offset=0.001,colnames_position="top",
+                colnames_angle=90,color=NULL,
+                colnames_offset_y = 1,hjust=-0.1, 
+                font.size=1.2)+
+   scale_fill_manual(values = c("white","Red"),breaks=c("0","1"))
+
+|image8| |image9|
 
 Get
 `PDF <https://github.com/hzafeng/huifeng/tree/master/source/images/PDF>`__
+
+*Shigella Piasmid Mxi-Spa identifed if MxiM or Spa33 existed.*
 
 .. |image0| image:: images/agg_upsetR.png
 .. |image1| image:: images/stx_upsetR.png
@@ -402,6 +428,7 @@ Get
 .. |image4| image:: images/St_ad_circular.png
 .. |image5| image:: images/Elt_ad_circular.png
 .. |image6| image:: images/toxin_circular.png
-.. |image7| image:: pangenome_matrix.png
-.. |image8| image:: ggtree_heatmap.png
+.. |image7| image:: /images/pangenome_matrix.png
+.. |image8| image:: /images/ggtree_heatmap_normal.png
+.. |image9| image:: /images/ggtree_heatmap_circular.png
 

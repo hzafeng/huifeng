@@ -492,13 +492,37 @@ write.csv(&quot;BAPS.csv&quot;,hb.results$partition.df)
 <div class="code shell highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">roary_plots</span><span class="o">.</span><span class="n">py</span> <span class="n">fast</span><span class="o">.</span><span class="n">tree</span> <span class="n">gene_presence_absence</span><span class="o">.</span><span class="n">csv</span>
 </pre></div>
 </div>
-<p><img alt="image7" src="pangenome_matrix.png" /></p>
+<p><img alt="image7" src="_images/pangenome_matrix.png" /></p>
 </div>
 <div class="section" id="visualize-tree-with-ggtree">
 <h3>Visualize Tree with <a class="reference external" href="https://github.com/GuangchuangYu/ggtree">ggtree</a><a class="headerlink" href="#visualize-tree-with-ggtree" title="Permalink to this headline">¶</a></h3>
-<p><img alt="image8" src="ggtree_heatmap.png" /></p>
+<div class="code r highlight-default notranslate"><div class="highlight"><pre><span></span>library(ggtree)
+library(ggplot2)
+cluster=read.csv(&quot;BAPS_reid.csv&quot;)
+info&lt;-read.csv(&quot;label2.csv&quot;)
+heatmapData&lt;-read.csv(&quot;show_vf_profile.csv&quot;,row.names=2)
+heatmapData=heatmapData[2:12]
+rn &lt;- rownames(heatmapData)
+heatmapData &lt;- as.data.frame(sapply(heatmapData, as.character))
+rownames(heatmapData) &lt;- rn
+
+f&lt;-read.tree(&quot;Out_root.nwk.txt&quot;)
+group=split(cluster$isolate,cluster$group_level_1)
+f &lt;- groupOTU(f, group)
+p&lt;-ggtree(f,aes(color=group)) %&lt;+% info +
+geom_tiplab(aes(label=Serotype),align=T, linetype=NA,size=0.8)+theme(legend.position = &quot;right&quot;)+scale_color_manual(values=c(&#39;black&#39;,&#39;#8DD3C7&#39;,&#39;#FFFFB3&#39;,&#39;#BEBADA&#39;,&#39;#FB8072&#39;,&#39;#80B1D3&#39;,&#39;#FDB462&#39;,&#39;#B3DE69&#39;,&#39;#FCCDE5&#39;, &#39;#D9D9D9&#39; ,&#39;#BC80BD&#39;, &#39;#CCEBC5&#39;, &#39;#FFED6F&#39;))
+
+p3&lt;-gheatmap(p,heatmapData,offset=0.001,colnames_position=&quot;top&quot;,
+             colnames_angle=90,color=NULL,
+             colnames_offset_y = 1,hjust=-0.1,
+             font.size=1.2)+
+scale_fill_manual(values = c(&quot;white&quot;,&quot;Red&quot;),breaks=c(&quot;0&quot;,&quot;1&quot;))
+</pre></div>
+</div>
+<p><img alt="image8" src="_images/ggtree_heatmap_normal.png" /> <img alt="image9" src="_images/ggtree_heatmap_circular.png" /></p>
 <p>Get
 <a class="reference external" href="https://github.com/hzafeng/huifeng/tree/master/source/images/PDF">PDF</a></p>
+<p><em>Shigella Piasmid Mxi-Spa identifed if MxiM or Spa33 existed.</em></p>
 </div>
 </div>
 </div>
