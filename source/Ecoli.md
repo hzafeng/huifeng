@@ -192,9 +192,9 @@ Use [Assembly-stat](https://github.com/sanger-pathogens/assembly-stats) to get a
 ### Use [Prokka](https://github.com/tseemann/prokka) Annotate
 
 #### Build local Database of *Escherichia coli*
+
 Use all "Complete genome" level of genome completeness strain to construct database.
-    Download gbk file same as [Download via accession number]
-    (https://huifeng.readthedocs.io/en/latest/Ecoli.html#download-via-accession-number)
+    Download gbk file same as [Download via accession number](https://huifeng.readthedocs.io/en/latest/Ecoli.html#download-via-accession-number)
 
 
 
@@ -301,7 +301,7 @@ hb.results <- hierBAPS(snp.matrix, max.depth = 2, n.pops = 12, quiet = TRUE)
 write.csv("BAPS.csv",hb.results$partition.df)
 ```
 
-### Tree Visualization
+## Tree Visualization
 
 ### Visualize Tree with Pan-genome Profile( Use [Roary script](https://github.com/sanger-pathogens/Roary/tree/master/contrib/roary_plots))
 ```Shell

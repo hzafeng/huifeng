@@ -118,7 +118,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#model-select">Model Select</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#use-fasttree-construct-phylogenetic-tree">Use FastTree construct phylogenetic tree</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#calculate-population-structure">Calculate Population Structure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#tree-visualization">Tree Visualization</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tree-visualization">Tree Visualization</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#visualize-tree-with-pan-genome-profile-use-roary-script">Visualize Tree with Pan-genome Profile( Use Roary script)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#visualize-tree-with-ggtree">Visualize Tree with ggtree</a></li>
 </ul>
@@ -384,9 +386,8 @@ top genome completeness isolate to construct phylogeneitc tree.</p>
 <div class="section" id="build-local-database-of-escherichia-coli">
 <h4>Build local Database of <em>Escherichia coli</em><a class="headerlink" href="#build-local-database-of-escherichia-coli" title="Permalink to this headline">¶</a></h4>
 <p>Use all “Complete genome” level of genome completeness strain to
-construct database. Download gbk file same as <a class="reference external" href="#download-via-accession-number">Download via accession
-number</a>
-(<a class="reference external" href="https://huifeng.readthedocs.io/en/latest/Ecoli.html#download-via-accession-number">https://huifeng.readthedocs.io/en/latest/Ecoli.html#download-via-accession-number</a>)</p>
+construct database. Download gbk file same as <a class="reference external" href="https://huifeng.readthedocs.io/en/latest/Ecoli.html#download-via-accession-number">Download via accession
+number</a></p>
 <div class="code shell highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">prokka</span><span class="o">-</span><span class="n">genbank_to_fasta_db</span> <span class="o">*.</span><span class="n">gbk</span> <span class="o">&gt;</span> <span class="n">ecoli</span><span class="o">.</span><span class="n">faa</span>
 <span class="n">cd</span><span class="o">-</span><span class="n">hit</span> <span class="o">-</span><span class="n">i</span> <span class="n">ecoli</span><span class="o">.</span><span class="n">faa</span> <span class="o">-</span><span class="n">o</span> <span class="n">ecoli</span> <span class="o">-</span><span class="n">T</span> <span class="mi">0</span> <span class="o">-</span><span class="n">M</span> <span class="mi">0</span> <span class="o">-</span><span class="n">g</span> <span class="mi">1</span> <span class="o">-</span><span class="n">s</span> <span class="mf">0.8</span> <span class="o">-</span><span class="n">c</span> <span class="mf">0.9</span>
 <span class="n">rm</span> <span class="o">-</span><span class="n">fv</span> <span class="n">ecoli</span><span class="o">.</span><span class="n">faa</span> <span class="n">ecoli</span><span class="o">.</span><span class="n">bak</span><span class="o">.</span><span class="n">clstr</span> <span class="n">ecoli</span><span class="o">.</span><span class="n">clstr</span>
@@ -491,9 +492,9 @@ write.csv(&quot;BAPS.csv&quot;,hb.results$partition.df)
 </pre></div>
 </div>
 </div>
-<div class="section" id="tree-visualization">
-<h3>Tree Visualization<a class="headerlink" href="#tree-visualization" title="Permalink to this headline">¶</a></h3>
 </div>
+<div class="section" id="tree-visualization">
+<h2>Tree Visualization<a class="headerlink" href="#tree-visualization" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="visualize-tree-with-pan-genome-profile-use-roary-script">
 <h3>Visualize Tree with Pan-genome Profile( Use <a class="reference external" href="https://github.com/sanger-pathogens/Roary/tree/master/contrib/roary_plots">Roary script</a>)<a class="headerlink" href="#visualize-tree-with-pan-genome-profile-use-roary-script" title="Permalink to this headline">¶</a></h3>
 <div class="code shell highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">roary_plots</span><span class="o">.</span><span class="n">py</span> <span class="n">fast</span><span class="o">.</span><span class="n">tree</span> <span class="n">gene_presence_absence</span><span class="o">.</span><span class="n">csv</span>

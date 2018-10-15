@@ -260,8 +260,7 @@ Build local Database of *Escherichia coli*
 
 Use all “Complete genome” level of genome completeness strain to
 construct database. Download gbk file same as `Download via accession
-number <#download-via-accession-number>`__
-(https://huifeng.readthedocs.io/en/latest/Ecoli.html#download-via-accession-number)
+number <https://huifeng.readthedocs.io/en/latest/Ecoli.html#download-via-accession-number>`__
 
 .. code:: shell
 
@@ -381,7 +380,7 @@ implementation of
    write.csv("BAPS.csv",hb.results$partition.df)
 
 Tree Visualization
-~~~~~~~~~~~~~~~~~~
+------------------
 
 Visualize Tree with Pan-genome Profile( Use `Roary script <https://github.com/sanger-pathogens/Roary/tree/master/contrib/roary_plots>`__)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
