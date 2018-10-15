@@ -1,13 +1,14 @@
 # Project of *Escherichia coli*
 
 ## Overview
+
 [*Escherichia coli*](https://en.wikipedia.org/wiki/Escherichia_coli) is a Gram-negative, rod-shaped bacterium belonging to the family *Enterobacteriaceae* that was described in 1885 by a German pediatrician. Pathogenic E.coli is versatile due to the diversity of their gene sets. Virulence factors usually located on a virulence plasmid and can be acquired through gene transfer.Different combination of virulence factors may caused to different illness among human and animals. 
 
 This time, we investigate the co-occurrance of virulence factors among all the available genome 
 in the [Genbank](https://www.ncbi.nlm.nih.gov/genbank/). Meanwhile, we use phylogenetic tree to investigate relationship between different O/H serotype.
 
 ## Environment 
-* [Python](https://www.python.org/download/releases/2.7/) 2.7( [Anaconda](https://www.anaconda.com/))
+* [Python](https://www.python.org/download/releases/2.7/) 2.7(recommend [Anaconda](https://www.anaconda.com/))
 
 
 ## Genome Download
@@ -40,6 +41,10 @@ f=pd.read_table("assembly_summary_genbank.txt",sep='\t',header=1)
 for i in f[f['organism_name']=='Escherichia coli']['ftp_path']:
     os.system('wget '+i+'_genomic.fna.gz')
 ```
+
+
+## Virulence Factors Detection
+
 ### Translate into amino acid sequence
 Usually I only download fna file, and use [Prodigal](https://github.com/hyattpd/Prodigal) to translate nucleotide into amino acid sequence.
 ```Python
@@ -50,15 +55,17 @@ for i in os.listdir('.'):
 ```
 Now we can get predicted protein sequence of all E.coli genomes. 
 
+### Blast Based Method
 
-## Virulence Factors Detection
 We use all protein sequence to run [BLAST](https://blast.ncbi.nlm.nih.gov/Blast.cgi) against a In-house collected gene set:
 ```Shell
 cat *.faa > Ecoli.faa
 makeblastdb -in VF.faa -dbtype prot
 blastp -query Ecoli.faa -db VF.faa -out VF.blast -outfmt 6 -evalue 1e-10  -num_threads 8 -num_alignments 1
 ```
+
 ### Result Analysis
+
 ```Pyhton
 # Get_Strain_VF_Profile_Matrix:
 strain_profile={}
@@ -270,7 +277,7 @@ outfile.close()
 ```
 In this way, we can get connected.fna file of connected DNA sequence for Population Structure calculation
 
-#### Model Select
+### Model Select
 
 Use [ProtTest](https://github.com/ddarriba/prottest3)
 ```shell
@@ -279,12 +286,12 @@ java -jar prottest-3.4.2.jar -i connected.faa -S 2 -all-distributions -all -tc 0
 
 In this work, we get "JTT+I+G" model.
 
-#### Use [FastTree](http://www.microbesonline.org/fasttree/) construct phylogenetic tree
+### Use [FastTree](http://www.microbesonline.org/fasttree/) construct phylogenetic tree
 ```shell
 FastTree -gamma connected.faa > fast.tree 
 ```
 
-#### Calculate Population Structure
+### Calculate Population Structure
 Use [rhierbaps](https://github.com/gtonkinhill/rhierbaps)(R implementation of [hierBAPS](http://www.helsinki.fi/bsg/software/BAPS/))
 ```R
 devtools::install_github("gtonkinhill/rhierbaps")
@@ -294,7 +301,7 @@ hb.results <- hierBAPS(snp.matrix, max.depth = 2, n.pops = 12, quiet = TRUE)
 write.csv("BAPS.csv",hb.results$partition.df)
 ```
 
-## Tree Visualization
+### Tree Visualization
 
 ### Visualize Tree with Pan-genome Profile( Use [Roary script](https://github.com/sanger-pathogens/Roary/tree/master/contrib/roary_plots))
 ```Shell

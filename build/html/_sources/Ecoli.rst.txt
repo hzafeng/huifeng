@@ -22,8 +22,8 @@ serotype.
 Environment
 -----------
 
--  `Python <https://www.python.org/download/releases/2.7/>`__ 2.7(
-   `Anaconda <https://www.anaconda.com/>`__)
+-  `Python <https://www.python.org/download/releases/2.7/>`__
+   2.7(recommend `Anaconda <https://www.anaconda.com/>`__)
 
 Genome Download
 ---------------
@@ -67,6 +67,9 @@ or Use `Pandas <https://pandas.pydata.org/>`__
    for i in f[f['organism_name']=='Escherichia coli']['ftp_path']:
        os.system('wget '+i+'_genomic.fna.gz')
 
+Virulence Factors Detection
+---------------------------
+
 Translate into amino acid sequence
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -83,8 +86,8 @@ nucleotide into amino acid sequence.
 
 Now we can get predicted protein sequence of all E.coli genomes.
 
-Virulence Factors Detection
----------------------------
+Blast Based Method
+~~~~~~~~~~~~~~~~~~
 
 We use all protein sequence to run
 `BLAST <https://blast.ncbi.nlm.nih.gov/Blast.cgi>`__ against a In-house
@@ -345,7 +348,7 @@ In this way, we can get connected.fna file of connected DNA sequence for
 Population Structure calculation
 
 Model Select
-^^^^^^^^^^^^
+~~~~~~~~~~~~
 
 Use `ProtTest <https://github.com/ddarriba/prottest3>`__
 
@@ -356,14 +359,14 @@ Use `ProtTest <https://github.com/ddarriba/prottest3>`__
 In this work, we get “JTT+I+G” model.
 
 Use `FastTree <http://www.microbesonline.org/fasttree/>`__ construct phylogenetic tree
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: shell
 
    FastTree -gamma connected.faa > fast.tree 
 
 Calculate Population Structure
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Use `rhierbaps <https://github.com/gtonkinhill/rhierbaps>`__\ (R
 implementation of
@@ -378,7 +381,7 @@ implementation of
    write.csv("BAPS.csv",hb.results$partition.df)
 
 Tree Visualization
-------------------
+~~~~~~~~~~~~~~~~~~
 
 Visualize Tree with Pan-genome Profile( Use `Roary script <https://github.com/sanger-pathogens/Roary/tree/master/contrib/roary_plots>`__)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

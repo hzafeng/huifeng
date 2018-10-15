@@ -91,10 +91,11 @@
 <li class="toctree-l2"><a class="reference internal" href="#genome-download">Genome Download</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#install-wget">Install Wget</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#download-via-accession-number">Download via accession number</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#translate-into-amino-acid-sequence">Translate into amino acid sequence</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#virulence-factors-detection">Virulence Factors Detection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#translate-into-amino-acid-sequence">Translate into amino acid sequence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#blast-based-method">Blast Based Method</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#result-analysis">Result Analysis</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#data-visualization">Data visualization</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#use-upsetr">Use UpsetR:</a></li>
@@ -112,14 +113,12 @@
 <li class="toctree-l4"><a class="reference internal" href="#build-local-database-of-escherichia-coli">Build local Database of <em>Escherichia coli</em></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#run-prokka">Run prokka</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#use-roary-get-single-copy-gene">Use Roary get single copy gene</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#model-select">Model Select</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#use-fasttree-construct-phylogenetic-tree">Use FastTree construct phylogenetic tree</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#calculate-population-structure">Calculate Population Structure</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#tree-visualization">Tree Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#model-select">Model Select</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#use-fasttree-construct-phylogenetic-tree">Use FastTree construct phylogenetic tree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#calculate-population-structure">Calculate Population Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tree-visualization">Tree Visualization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#visualize-tree-with-pan-genome-profile-use-roary-script">Visualize Tree with Pan-genome Profile( Use Roary script)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#visualize-tree-with-ggtree">Visualize Tree with ggtree</a></li>
 </ul>
@@ -211,8 +210,8 @@ serotype.</p>
 <div class="section" id="environment">
 <h2>Environment<a class="headerlink" href="#environment" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://www.python.org/download/releases/2.7/">Python</a> 2.7(
-<a class="reference external" href="https://www.anaconda.com/">Anaconda</a>)</li>
+<li><a class="reference external" href="https://www.python.org/download/releases/2.7/">Python</a>
+2.7(recommend <a class="reference external" href="https://www.anaconda.com/">Anaconda</a>)</li>
 </ul>
 </div>
 <div class="section" id="genome-download">
@@ -248,6 +247,9 @@ in NCBI ftp site, we can get the genome through the organism name</p>
 </pre></div>
 </div>
 </div>
+</div>
+<div class="section" id="virulence-factors-detection">
+<h2>Virulence Factors Detection<a class="headerlink" href="#virulence-factors-detection" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="translate-into-amino-acid-sequence">
 <h3>Translate into amino acid sequence<a class="headerlink" href="#translate-into-amino-acid-sequence" title="Permalink to this headline">¶</a></h3>
 <p>Usually I only download fna file, and use
@@ -261,9 +263,8 @@ nucleotide into amino acid sequence.</p>
 </div>
 <p>Now we can get predicted protein sequence of all E.coli genomes.</p>
 </div>
-</div>
-<div class="section" id="virulence-factors-detection">
-<h2>Virulence Factors Detection<a class="headerlink" href="#virulence-factors-detection" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="blast-based-method">
+<h3>Blast Based Method<a class="headerlink" href="#blast-based-method" title="Permalink to this headline">¶</a></h3>
 <p>We use all protein sequence to run
 <a class="reference external" href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">BLAST</a> against a In-house
 collected gene set:</p>
@@ -271,6 +272,7 @@ collected gene set:</p>
 <span class="n">makeblastdb</span> <span class="o">-</span><span class="ow">in</span> <span class="n">VF</span><span class="o">.</span><span class="n">faa</span> <span class="o">-</span><span class="n">dbtype</span> <span class="n">prot</span>
 <span class="n">blastp</span> <span class="o">-</span><span class="n">query</span> <span class="n">Ecoli</span><span class="o">.</span><span class="n">faa</span> <span class="o">-</span><span class="n">db</span> <span class="n">VF</span><span class="o">.</span><span class="n">faa</span> <span class="o">-</span><span class="n">out</span> <span class="n">VF</span><span class="o">.</span><span class="n">blast</span> <span class="o">-</span><span class="n">outfmt</span> <span class="mi">6</span> <span class="o">-</span><span class="n">evalue</span> <span class="mf">1e-10</span>  <span class="o">-</span><span class="n">num_threads</span> <span class="mi">8</span> <span class="o">-</span><span class="n">num_alignments</span> <span class="mi">1</span>
 </pre></div>
+</div>
 </div>
 <div class="section" id="result-analysis">
 <h3>Result Analysis<a class="headerlink" href="#result-analysis" title="Permalink to this headline">¶</a></h3>
@@ -461,8 +463,9 @@ done
 <p>In this way, we can get connected.fna file of connected DNA sequence for
 Population Structure calculation</p>
 </div>
+</div>
 <div class="section" id="model-select">
-<h4>Model Select<a class="headerlink" href="#model-select" title="Permalink to this headline">¶</a></h4>
+<h3>Model Select<a class="headerlink" href="#model-select" title="Permalink to this headline">¶</a></h3>
 <p>Use <a class="reference external" href="https://github.com/ddarriba/prottest3">ProtTest</a></p>
 <div class="code shell highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">java</span> <span class="o">-</span><span class="n">jar</span> <span class="n">prottest</span><span class="o">-</span><span class="mf">3.4</span><span class="o">.</span><span class="mf">2.</span><span class="n">jar</span> <span class="o">-</span><span class="n">i</span> <span class="n">connected</span><span class="o">.</span><span class="n">faa</span> <span class="o">-</span><span class="n">S</span> <span class="mi">2</span> <span class="o">-</span><span class="nb">all</span><span class="o">-</span><span class="n">distributions</span> <span class="o">-</span><span class="nb">all</span> <span class="o">-</span><span class="n">tc</span> <span class="mf">0.5</span> <span class="o">&gt;</span> <span class="n">prottest</span><span class="o">.</span><span class="n">output</span>
 </pre></div>
@@ -470,13 +473,13 @@ Population Structure calculation</p>
 <p>In this work, we get “JTT+I+G” model.</p>
 </div>
 <div class="section" id="use-fasttree-construct-phylogenetic-tree">
-<h4>Use <a class="reference external" href="http://www.microbesonline.org/fasttree/">FastTree</a> construct phylogenetic tree<a class="headerlink" href="#use-fasttree-construct-phylogenetic-tree" title="Permalink to this headline">¶</a></h4>
+<h3>Use <a class="reference external" href="http://www.microbesonline.org/fasttree/">FastTree</a> construct phylogenetic tree<a class="headerlink" href="#use-fasttree-construct-phylogenetic-tree" title="Permalink to this headline">¶</a></h3>
 <div class="code shell highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FastTree</span> <span class="o">-</span><span class="n">gamma</span> <span class="n">connected</span><span class="o">.</span><span class="n">faa</span> <span class="o">&gt;</span> <span class="n">fast</span><span class="o">.</span><span class="n">tree</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="calculate-population-structure">
-<h4>Calculate Population Structure<a class="headerlink" href="#calculate-population-structure" title="Permalink to this headline">¶</a></h4>
+<h3>Calculate Population Structure<a class="headerlink" href="#calculate-population-structure" title="Permalink to this headline">¶</a></h3>
 <p>Use <a class="reference external" href="https://github.com/gtonkinhill/rhierbaps">rhierbaps</a>(R
 implementation of
 <a class="reference external" href="http://www.helsinki.fi/bsg/software/BAPS/">hierBAPS</a>)</p>
@@ -488,10 +491,9 @@ write.csv(&quot;BAPS.csv&quot;,hb.results$partition.df)
 </pre></div>
 </div>
 </div>
-</div>
-</div>
 <div class="section" id="tree-visualization">
-<h2>Tree Visualization<a class="headerlink" href="#tree-visualization" title="Permalink to this headline">¶</a></h2>
+<h3>Tree Visualization<a class="headerlink" href="#tree-visualization" title="Permalink to this headline">¶</a></h3>
+</div>
 <div class="section" id="visualize-tree-with-pan-genome-profile-use-roary-script">
 <h3>Visualize Tree with Pan-genome Profile( Use <a class="reference external" href="https://github.com/sanger-pathogens/Roary/tree/master/contrib/roary_plots">Roary script</a>)<a class="headerlink" href="#visualize-tree-with-pan-genome-profile-use-roary-script" title="Permalink to this headline">¶</a></h3>
 <div class="code shell highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">roary_plots</span><span class="o">.</span><span class="n">py</span> <span class="n">fast</span><span class="o">.</span><span class="n">tree</span> <span class="n">gene_presence_absence</span><span class="o">.</span><span class="n">csv</span>
