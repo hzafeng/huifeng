@@ -198,7 +198,7 @@ Use all "Complete genome" level of genome completeness strain to construct datab
 
 
 
- ```shell   
+ ```Shell   
     prokka-genbank_to_fasta_db *.gbk > ecoli.faa
     cd-hit -i ecoli.faa -o ecoli -T 0 -M 0 -g 1 -s 0.8 -c 0.9
     rm -fv ecoli.faa ecoli.bak.clstr ecoli.clstr
@@ -208,7 +208,7 @@ Use all "Complete genome" level of genome completeness strain to construct datab
 
 #### Run prokka 
 
-```python
+```Python
 import os
 for i in os.listdir('.'):   
     prokka = 'prokka --usegenus --genus ecoli --outdir ./prokka_out'+i.split('.')[0]+' --locustag '+i.split('.')[0]+' --prefix '+i.split('.')[0]+' --cpus 32 '+i
@@ -224,7 +224,7 @@ for i in os.listdir('.'):
     raory *.gff 
     # get single copy gene
 
-```python
+```Python
 import pandas as pd
 f=pd.read_csv("gene_presence_absence.csv",low_memory=False)
 f1=f[(f['No. isolates']==1616) & f['Avg sequences per isolate']==1.0]
