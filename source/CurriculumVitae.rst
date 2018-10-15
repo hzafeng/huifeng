@@ -104,8 +104,11 @@ Completed Project
    Pigs**
 
 Manuscript “Metagenomic Reconstructions of Gut Microbial Metabolism in
-Weanling Pigs. Weilan W#, **Huifeng**\ #, Ruurd TZ, Jinshui Z#, Michael
-G#” was under prepare \* **Genomic of Xanthomonas oryzae pv. oryzae**
+Weanling Pigs. Weilan W#, **Huifeng**\ #, Ruurd TZ, Jinshui Z\ *,
+Michael G*” was under prepare
+
+-  **Genomic of Xanthomonas oryzae pv. oryzae**
+
 Manuscript “Population genomics and large-scale pathotypic evaluation
 reveal rapid evolutionary dynamics of a bacterial plant pathogen.Jinshui
 Z# , Zhiwei S# , Dehong Z, **Huifeng** *et al*” was under prepare
