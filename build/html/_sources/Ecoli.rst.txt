@@ -425,7 +425,7 @@ Visualize Tree with `ggtree <https://github.com/GuangchuangYu/ggtree>`__
 Get
 `PDF <https://github.com/hzafeng/huifeng/tree/master/source/images/PDF>`__
 
-*Shigella Piasmid Mxi-Spa identifed if MxiM or Spa33 existed.*
+*Shigella Piasmid pINV identifed if Iph antigen existed.*
 
 .. |image0| image:: images/agg_upsetR.png
 .. |image1| image:: images/stx_upsetR.png
