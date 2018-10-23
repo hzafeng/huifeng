@@ -32,7 +32,8 @@ os.mkdir("Ecoli_genome")
 os.chdir("Ecoli_genome")
 with open(r'assembly_summary_genbank.txt') as f:
     for i in f.read().split('\n')[2:-1]:
-        os.system('wget '+i+'_genomic.fna.gz')
+        if 'Escherichia coli' in i :
+            os.system('wget '+i+'_genomic.fna.gz')
 ```
 or Use [Pandas](https://pandas.pydata.org/)
 ```Python

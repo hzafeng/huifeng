@@ -238,7 +238,8 @@ in NCBI ftp site, we can get the genome through the organism name</p>
 <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s2">&quot;Ecoli_genome&quot;</span><span class="p">)</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;assembly_summary_genbank.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)[</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;wget &#39;</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="s1">&#39;_genomic.fna.gz&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;Escherichia coli&#39;</span> <span class="ow">in</span> <span class="n">i</span> <span class="p">:</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;wget &#39;</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="s1">&#39;_genomic.fna.gz&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>or Use <a class="reference external" href="https://pandas.pydata.org/">Pandas</a></p>
