@@ -17,7 +17,7 @@ University Ave. 11121, Edmonton, Canada | huifeng@ualberta.ca
 **Master of Biological Engineering** , Supervised by [Jinshui Zheng](https://scholar.google.com.tw/citations?hl=zh-CN&user=L9z2gMAAAAAJ&view_op=list_works&sortby=pubdate)
 
 
-**2018.07 - Present**    [University of Alberta](https://www.ualberta.ca/) | Edmonton, Canada
+**2018.07 - 2018.12**    [University of Alberta](https://www.ualberta.ca/) | Edmonton, Canada
 
 **Visiting Student** , Supervised by [Michael Gänzle](https://scholar.google.ca/citations?user=Zc29kvEAAAAJ&hl=en)
 
@@ -52,14 +52,14 @@ University Ave. 11121, Edmonton, Canada | huifeng@ualberta.ca
 ### Completed Project
 * **Metagenomic Reconstructions of Gut Microbial Metabolism in Weanling Pigs**
 
-Manuscript "Metagenomic Reconstructions of Gut Microbial Metabolism in Weanling Pigs. Weilan W#, **Huifeng**#, Ruurd TZ, Jinshui Z*, Michael G*" was under prepare
-
+Manuscript "Metagenomic Reconstructions of Gut Microbial Metabolism in Weanling Pigs. Weilan W#, **Huifeng**#, Ruurd TZ, Jinshui Z*, Michael G*"  has been reviewed by **Microbiome**, under revision now
 * **Genomic of *Xanthomonas oryzae pv. oryzae*** 
 
-Manuscript "Population genomics and large-scale pathotypic evaluation reveal rapid evolutionary dynamics of a bacterial plant pathogen.Jinshui Z# , Zhiwei S# , Dehong Z, **Huifeng** *et al*" was under prepare
+Manuscript "Population genomics and large-scale pathotypic evaluation reveal rapid evolutionary dynamics of a bacterial plant pathogen.Jinshui Z# , Zhiwei S# , Dehong Z, **Huifeng** *et al*"  has been reviewed by **ISMEJ**, under revision now
 
 ### Project in progress
 * Comparative Genomics of *Escherichia coli*
+* Comparative Genomics of *ExEPC* from Pigs
 * Comparative Genomics of genus *Bacillus*
 
 ## Personal Statement
