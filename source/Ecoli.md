@@ -67,7 +67,7 @@ blastp -query Ecoli.faa -db VF.faa -out VF.blast -outfmt 6 -evalue 1e-10  -num_t
 
 ### Result Analysis
 
-```Pyhton
+```Python
 # Get_Strain_VF_Profile_Matrix:
 strain_profile={}
 vfs=[]

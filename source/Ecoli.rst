@@ -103,7 +103,7 @@ collected gene set:
 Result Analysis
 ~~~~~~~~~~~~~~~
 
-.. code:: pyhton
+.. code:: python
 
    # Get_Strain_VF_Profile_Matrix:
    strain_profile={}
