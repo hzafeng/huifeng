@@ -22,7 +22,7 @@ University <http://www.hzau.edu.cn/en/HOME.htm>`__ \| Wuhan, China
 **Master of Biological Engineering** , Supervised by `Jinshui
 Zheng <https://scholar.google.com.tw/citations?hl=zh-CN&user=L9z2gMAAAAAJ&view_op=list_works&sortby=pubdate>`__
 
-**2018.07 - Present** `University of
+**2018.07 - 2018.12** `University of
 Alberta <https://www.ualberta.ca/>`__ \| Edmonton, Canada
 
 **Visiting Student** , Supervised by `Michael
@@ -105,18 +105,19 @@ Completed Project
 
 Manuscript “Metagenomic Reconstructions of Gut Microbial Metabolism in
 Weanling Pigs. Weilan W#, **Huifeng**\ #, Ruurd TZ, Jinshui Z\ *,
-Michael G*” was under prepare
-
--  **Genomic of Xanthomonas oryzae pv. oryzae**
+Michael G*” has been reviewed by **Microbiome**, under revision now \*
+**Genomic of Xanthomonas oryzae pv. oryzae**
 
 Manuscript “Population genomics and large-scale pathotypic evaluation
 reveal rapid evolutionary dynamics of a bacterial plant pathogen.Jinshui
-Z# , Zhiwei S# , Dehong Z, **Huifeng** *et al*” was under prepare
+Z# , Zhiwei S# , Dehong Z, **Huifeng** *et al*” has been reviewed by
+**ISMEJ**, under revision now
 
 Project in progress
 ~~~~~~~~~~~~~~~~~~~
 
 -  Comparative Genomics of *Escherichia coli*
+-  Comparative Genomics of *ExEPC* from Pigs
 -  Comparative Genomics of genus *Bacillus*
 
 Personal Statement
