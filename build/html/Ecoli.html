@@ -27,7 +27,8 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="CurriculumVitae" href="CurriculumVitae.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -80,52 +81,54 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Project of <em>Escherichia coli</em></a><ul>
-<li><a class="reference internal" href="#overview">Overview</a></li>
-<li><a class="reference internal" href="#environment">Environment</a></li>
-<li><a class="reference internal" href="#genome-download">Genome Download</a><ul>
-<li><a class="reference internal" href="#install-wget">Install Wget</a></li>
-<li><a class="reference internal" href="#download-via-accession-number">Download via accession number</a></li>
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Bio.html">Bio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CurriculumVitae.html">CurriculumVitae</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Project of <em>Escherichia coli</em></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#environment">Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#genome-download">Genome Download</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#install-wget">Install Wget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#download-via-accession-number">Download via accession number</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#virulence-factors-detection">Virulence Factors Detection</a><ul>
-<li><a class="reference internal" href="#translate-into-amino-acid-sequence">Translate into amino acid sequence</a></li>
-<li><a class="reference internal" href="#blast-based-method">Blast Based Method</a></li>
-<li><a class="reference internal" href="#result-analysis">Result Analysis</a></li>
-<li><a class="reference internal" href="#data-visualization">Data visualization</a><ul>
-<li><a class="reference internal" href="#use-upsetr">Use UpsetR:</a></li>
-<li><a class="reference internal" href="#use-networkx">Use NetworkX</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#in-silico-serotyping">In Silico Serotyping</a><ul>
-<li><a class="reference internal" href="#result-statistics">Result Statistics</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#phylogenetic-tree-construction">Phylogenetic Tree Construction</a><ul>
-<li><a class="reference internal" href="#use-prokka-annotate">Use Prokka Annotate</a><ul>
-<li><a class="reference internal" href="#build-local-database-of-escherichia-coli">Build local Database of <em>Escherichia coli</em></a></li>
-<li><a class="reference internal" href="#run-prokka">Run prokka</a></li>
-<li><a class="reference internal" href="#use-roary-get-single-copy-gene">Use Roary get single copy gene</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#model-select">Model Select</a></li>
-<li><a class="reference internal" href="#use-fasttree-construct-phylogenetic-tree">Use FastTree construct phylogenetic tree</a></li>
-<li><a class="reference internal" href="#calculate-population-structure">Calculate Population Structure</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#tree-visualization">Tree Visualization</a><ul>
-<li><a class="reference internal" href="#visualize-tree-with-pan-genome-profile-use-roary-script">Visualize Tree with Pan-genome Profile( Use Roary script)</a></li>
-<li><a class="reference internal" href="#visualize-tree-with-ggtree">Visualize Tree with ggtree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#virulence-factors-detection">Virulence Factors Detection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#translate-into-amino-acid-sequence">Translate into amino acid sequence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#blast-based-method">Blast Based Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#result-analysis">Result Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-visualization">Data visualization</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#use-upsetr">Use UpsetR:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#use-networkx">Use NetworkX</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#in-silico-serotyping">In Silico Serotyping</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#result-statistics">Result Statistics</a></li>
 </ul>
-</div>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#phylogenetic-tree-construction">Phylogenetic Tree Construction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#use-prokka-annotate">Use Prokka Annotate</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#build-local-database-of-escherichia-coli">Build local Database of <em>Escherichia coli</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#run-prokka">Run prokka</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#use-roary-get-single-copy-gene">Use Roary get single copy gene</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#model-select">Model Select</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#use-fasttree-construct-phylogenetic-tree">Use FastTree construct phylogenetic tree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#calculate-population-structure">Calculate Population Structure</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tree-visualization">Tree Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#visualize-tree-with-pan-genome-profile-use-roary-script">Visualize Tree with Pan-genome Profile( Use Roary script)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#visualize-tree-with-ggtree">Visualize Tree with ggtree</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
             
           
         </div>
@@ -582,6 +585,13 @@ scale_fill_manual(values = c(&quot;white&quot;,&quot;Red&quot;),breaks=c(&quot;0
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="CurriculumVitae.html" class="btn btn-neutral" title="CurriculumVitae" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
